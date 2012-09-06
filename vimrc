@@ -45,7 +45,7 @@ set hlsearch
 "key mappings
 map ,n :bnext<CR>
 map ,p :bprev<CR>
-map ,d :bd<CR>
+map ,d :BD<CR>
 map ,e :e<CR>
 
 "mimic windows copy/paste behavior

@@ -110,4 +110,5 @@ function! DebugThis()
     :echohl None
 endfunction
 
+" remove trailing spaces on save
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()

@@ -30,8 +30,11 @@ set fileformat=unix
 
 "set status line
 set ruler
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set laststatus=2
+set statusline=%t[%P][%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %{buftabs#statusline()}
+
+"show buftabs in statusline
+:let g:buftabs_in_statusline=1
 
 "set current dir to current buffer file
 set autochdir

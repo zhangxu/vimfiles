@@ -112,3 +112,6 @@ endfunction
 
 " remove trailing spaces on save
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
+
+" To maximize the initial Vim window under Windows
+autocmd GUIEnter * simalt ~x

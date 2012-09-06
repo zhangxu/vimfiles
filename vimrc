@@ -24,6 +24,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+"<EOL> setting
+set fileformats=unix,dos
+set fileformat=unix
+
 "set status line
 set ruler
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P

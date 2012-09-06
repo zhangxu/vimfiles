@@ -59,8 +59,8 @@ nmap <Up> <C-W>+
 nmap <Left> <C-W><
 nmap <Right> <C-W>>
 
-nmap <c-F5> :call RunThis()<CR>
-nmap <c-F6> :call DebugThis()<CR>
+nmap <F5> :call RunThis()<CR>
+nmap <F6> :call DebugThis()<CR>
 
 "funtion definitions
 function! RemoveTrailingSpaces()

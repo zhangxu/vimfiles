@@ -43,8 +43,10 @@ set autochdir
 set hlsearch
 
 "key mappings
-map 'n :bnext<CR>
-map 'p :bprev<CR>
+map ,n :bnext<CR>
+map ,p :bprev<CR>
+map ,d :bd<CR>
+map ,e :e<CR>
 
 "mimic windows copy/paste behavior
 vmap <c-c> "+y

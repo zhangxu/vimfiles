@@ -36,9 +36,6 @@ set statusline=%t[%P][%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %
 "show buftabs in statusline
 :let g:buftabs_in_statusline=1
 
-"set current dir to current buffer file
-set autochdir
-
 "highlight search result
 set hlsearch
 
@@ -122,4 +119,14 @@ autocmd GUIEnter * simalt ~x
 
 " netrw settings {{{
 :let g:netrw_liststyle = 3
+augroup ADS_dirchange
+   au!
+   if version >= 700
+      " Make automatic directory changing work with netrw
+      let g:netrw_keepdir = 0
+      au BufFilePost,BufEnter * if !isdirectory(expand('<afile>')) | sil! cd %:p:h | endif
+   else
+      au BufFilePost,BufEnter * sil! cd %:p:h
+   endif
+augroup END
 " }}}

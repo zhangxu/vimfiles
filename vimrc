@@ -119,3 +119,7 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
 autocmd GUIEnter * simalt ~x
+
+" netrw settings {{{
+:let g:netrw_liststyle = 3
+" }}}

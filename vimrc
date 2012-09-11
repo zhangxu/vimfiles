@@ -12,6 +12,9 @@ set nobackup
 "disable the ~/_viminfo file
 set viminfo=""
 
+"set font
+set gfn=Inconsolata:h11:cANSI
+
 "show tabs and trailing spaces
 set list
 set listchars=tab:>.,trail:.,nbsp:%,eol:¶

@@ -121,7 +121,7 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 autocmd GUIEnter * simalt ~x
 
 " netrw settings {{{
-:let g:netrw_liststyle = 3
+:let g:netrw_liststyle = 1
 augroup ADS_dirchange
    au!
    if version >= 700

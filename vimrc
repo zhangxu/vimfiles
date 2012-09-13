@@ -44,12 +44,15 @@ set hlsearch
 
 "key mappings
 
+"help
+map <F1> :help<Space>
+
 "buffer
 map `n :bnext<CR>
 map `p :bprev<CR>
 map `d :BD<CR>
-map `e :e<CR>
-map `ee :Explore
+map `e :e<Space>
+map `ee :Explore<Space>
 
 "folding
 map `o zo

@@ -3,7 +3,7 @@ setlocal softtabstop=0
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
-
+setlocal textwidth=80
 "folding
 setlocal foldmethod=expr
 setlocal foldexpr=GetScalaFold(v:lnum)

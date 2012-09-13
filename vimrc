@@ -45,12 +45,17 @@ set hlsearch
 "key mappings
 
 "buffer
-map ,n :bnext<CR>
-map ,p :bprev<CR>
-map ,d :BD<CR>
-map ,e :e<CR>
-map ,ee :Explore
+map `n :bnext<CR>
+map `p :bprev<CR>
+map `d :BD<CR>
+map `e :e<CR>
+map `ee :Explore
 
+"folding
+map `o zo
+map `c zc
+map `O zO
+map `Z zC
 
 "mimic windows copy/paste behavior
 vmap <c-c> "+y

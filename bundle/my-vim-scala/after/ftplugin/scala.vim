@@ -7,12 +7,12 @@ setlocal expandtab
 "folding
 setlocal foldmethod=expr
 setlocal foldexpr=GetScalaFold(v:lnum)
-setlocal foldlevel=2
+setlocal foldlevel=1
 
 function! GetScalaFold(lnum)
 
     if getline(a:lnum) =~ '\v^import'
-        return 3
+        return 2
     endif
 
     if getline(a:lnum) =~ '\v^\s*import'

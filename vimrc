@@ -52,7 +52,7 @@ map ,n :bnext<CR>
 map ,p :bprev<CR>
 map ,d :BD<CR>
 map ,e :e<Space>
-map ,ee :Explore<Space>
+map ,x :Explore<Space>
 
 "folding
 map ,o zo

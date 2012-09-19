@@ -6,6 +6,9 @@ colorscheme molokai
 "show line number
 set number
 
+"disable menu bar
+set go-=m go-=r
+
 "disable backup
 set nobackup
 
@@ -63,7 +66,8 @@ map ,Z zC
 "mimic windows copy/paste behavior
 vmap <c-c> "+y
 vmap <c-x> "+d
-map <c-v> <S-Insert>
+nmap <c-v> "+p
+imap <c-v> <S-Insert>
 
 "change window size
 nmap <Down> <C-W>-

@@ -53,6 +53,7 @@ map <F1> :help<Space>
 "buffer
 map ,n :bnext<CR>
 map ,p :bprev<CR>
+map ,l :ls<CR>
 map ,d :BD<CR>
 map ,e :e<Space>
 map ,x :Explore<Space>

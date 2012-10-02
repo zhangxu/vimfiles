@@ -42,6 +42,6 @@ function! OrganizeImps()
     let imps=filter(getline(1, end), 'v:val =~ "^import"')
     let packs = {}
     for i in range(0, len(imps)-1)
-        :echom imps[i]
+        let obj = substitute(imps[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g")
     endfor
 endfunction

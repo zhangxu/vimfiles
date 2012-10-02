@@ -38,18 +38,38 @@ endfunction
 
 function! OrganizeImps()
     norm! G$
-    let end=line(".")
-    let imps=filter(getline(1, end), 'v:val =~ "^import"')
-    let packs = {}
-    for i in range(0, len(imps)-1)
-        let sections = split(substitute(imps[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g"), "\\.")
-        let pack = join(sections[:len(sections) - 2], ".")
+    let end = line(".")
+    let entries = filter(getline(1, end), 'v:val =~ "^import"')
+    let imports = {}
+    for i in range(0, len(entries)-1)
+        let sections = split(substitute(entries[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g"), "\\.")
+        let package = join(sections[:len(sections) - 2], ".")
+
         let obj = sections[len(sections) - 1]
-        let objs = get(packs, pack, [])
-        let objs = sort(add(objs, substitute(obj, "^{|}$", "", "g")))
+        let obj = substitute(obj, "^{", "", "g")
+        let obj = substitute(obj, "}$", "", "g")
+
+        let objs = get(imports, package, [])
+        let objs = sort(add(objs, obj))
         let objs = filter(copy(objs), 'index(objs, v:val, v:key+1)==-1')
-        let packs[pack] = objs
+
+        let imports[package] = objs
     endfor
-    :echo packs
+
+    let results = []
+    let packages = sort(keys(imports))
+
+    for i in range(0, len(packages) - 1)
+        let objs = imports[packages[i]]
+        if len(objs) > 1
+            let import = packages[i] . ".{" . join(objs, ", ") . "}"
+        else
+            let import = packages[i] . "." . objs[0]
+        endif
+
+        let results = add(results, import)
+    endfor
+
+    :echo results
 endfunction
 

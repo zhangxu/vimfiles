@@ -70,6 +70,8 @@ function! OrganizeImps()
         let results = add(results, import)
     endfor
 
-    :echo results
+    :g/import/d
+    :w
+
 endfunction
 

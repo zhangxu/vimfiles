@@ -73,5 +73,14 @@ function! OrganizeImps()
     :g/import/d
     :w
 
+    norm! gg
+
+    while getline(line(".")) =~ "^package"
+        +1
+    endwhile
+
+    if getline(line(".")) !~ "\\s+"
+        norm! O
+    endif
 endfunction
 

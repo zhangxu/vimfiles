@@ -42,6 +42,12 @@ function! OrganizeImps()
     let imps=filter(getline(1, end), 'v:val =~ "^import"')
     let packs = {}
     for i in range(0, len(imps)-1)
-        let obj = substitute(imps[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g")
+        let sections = split(substitute(imps[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g"), "\\.")
+        let pack = join(sections[:len(sections) - 2], ".")
+        let obj = sections[len(sections) - 1]
+        let objs = get(packs, pack, [])
+        let objs = add(objs, obj)
+        let packs[pack] = objs
     endfor
+    :echo packs
 endfunction

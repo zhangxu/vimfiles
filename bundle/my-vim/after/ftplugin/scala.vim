@@ -46,8 +46,12 @@ function! OrganizeImps()
         let pack = join(sections[:len(sections) - 2], ".")
         let obj = sections[len(sections) - 1]
         let objs = get(packs, pack, [])
-        let objs = add(objs, obj)
+        let objs = sort(add(objs, substitute(obj, "^{|}$", "", "g")))
+        let objs=filter(copy(objs), 'index(objs, v:val, v:key+1)==-1')
         let packs[pack] = objs
     endfor
     :echo packs
+endfunction
+
+function! RemoveDups()
 endfunction

@@ -37,5 +37,11 @@ function! GetScalaFold(lnum)
 endfunction
 
 function! OrganizeImps()
-    :echom "organizing imports..."
+    norm! G$
+    let end=line(".")
+    let imps=filter(getline(1, end), 'v:val =~ "^import"')
+    let packs = {}
+    for i in range(0, len(imps)-1)
+        :echom imps[i]
+    endfor
 endfunction

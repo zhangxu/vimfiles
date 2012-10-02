@@ -9,6 +9,9 @@ setlocal foldmethod=expr
 setlocal foldexpr=GetScalaFold(v:lnum)
 setlocal foldlevel=1
 
+"organize imports
+nmap <C-S-o> :call OrganizeImps()<CR>
+
 function! GetScalaFold(lnum)
 
     if getline(a:lnum) =~ '\v^import'
@@ -31,4 +34,8 @@ function! GetScalaFold(lnum)
     else
         return indent(a:lnum) / &shiftwidth
     endif
+endfunction
+
+function! OrganizeImps()
+    :echom "organizing imports..."
 endfunction

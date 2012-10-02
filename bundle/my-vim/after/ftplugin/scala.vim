@@ -62,9 +62,9 @@ function! OrganizeImps()
     for i in range(0, len(packages) - 1)
         let objs = imports[packages[i]]
         if len(objs) > 1
-            let import = packages[i] . ".{" . join(objs, ", ") . "}"
+            let import = "import" . " " . packages[i] . ".{" . join(objs, ", ") . "}"
         else
-            let import = packages[i] . "." . objs[0]
+            let import = "import" . " " . packages[i] . "." . objs[0]
         endif
 
         let results = add(results, import)
@@ -81,6 +81,12 @@ function! OrganizeImps()
 
     if getline(line(".")) !~ "\\s+"
         norm! O
+    endif
+
+    let failed = append(line("."), results)
+
+    if failed != 1
+        :w
     endif
 endfunction
 

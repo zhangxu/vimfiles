@@ -74,7 +74,7 @@ function! OrganizeImps()
         let results = add(results, import)
     endfor
 
-    :g/import/d
+    :g/^import/d
     :w
 
     norm! gg

@@ -67,7 +67,7 @@ map ,x :Explore<Space>
 map ,o zo
 map ,c zc
 map ,O zO
-map ,Z zC
+map ,C zC
 
 "mimic windows copy/paste behavior
 vmap <c-c> "+y
@@ -83,6 +83,9 @@ nmap <Right> <C-W>>
 
 nmap <F5> :call RunThis()<CR>
 nmap <F6> :call DebugThis()<CR>
+
+"clear highlights
+nmap <F7> :let @/=""<CR>
 
 "funtion definitions
 function! RemoveTrailingSpaces()

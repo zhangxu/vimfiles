@@ -50,7 +50,7 @@ function! OrganizeImps()
         let obj = substitute(obj, "}$", "", "g")
 
         let objs = get(imports, package, [])
-        let objs = sort(add(objs, obj))
+        let objs = sort(extend(objs, map(split(obj, ','), 'substitute(v:val, "^\\s\\+\\|\\s\\+$", "", "g")')))
         let objs = filter(copy(objs), 'index(objs, v:val, v:key+1)==-1')
 
         let imports[package] = objs
@@ -62,7 +62,23 @@ function! OrganizeImps()
     for i in range(0, len(packages) - 1)
         let objs = imports[packages[i]]
         if len(objs) > 1
-            let import = "import" . " " . packages[i] . ".{" . join(objs, ", ") . "}"
+            let noneAliases = GetNoneAliases(objs)
+            let aliases = GetAliases(objs)
+
+            if len(noneAliases) > 0 && len(aliases) > 0
+                let import = "import" . " " . packages[i] . ".{" . noneAliases . ", " . aliases . "}"
+            else
+                if len(noneAliases) > 0
+                    if noneAliases == '_'
+                        let import = "import" . " " . packages[i] . "._"
+                    else
+                        let import = "import" . " " . packages[i] . ".{" . noneAliases . "}"
+                    endif
+                else
+                    let import = "import" . " " . packages[i] . ".{" . aliases . "}"
+                endif
+            endif
+
         else
             if objs[0] =~ ".*=>.*"
                 let import = "import" . " " . packages[i] . ".{" . objs[0] . "}"
@@ -70,27 +86,49 @@ function! OrganizeImps()
                 let import = "import" . " " . packages[i] . "." . objs[0]
             endif
         endif
-
         let results = add(results, import)
     endfor
-
-    :g/^import/d
-    :w
-
-    norm! gg
-
-    while getline(line(".")) =~ "^package"
-        +1
-    endwhile
-
-    if getline(line(".")) !~ "\\s+"
-        norm! O
-    endif
-
-    let failed = append(line("."), results)
-
-    if failed != 1
-        :w
-    endif
+    for i in range(0, len(results) - 1)
+        :echom results[i]
+    endfor
+"    :g/^import/d
+"    :w
+"
+"    norm! gg
+"
+"    while getline(line(".")) =~ "^package"
+"        +1
+"    endwhile
+"
+"    if getline(line(".")) !~ "\\s+"
+"        norm! O
+"    endif
+"
+"    let failed = append(line("."), results)
+"
+"    if failed != 1
+"        :w
+"    endif
 endfunction
 
+function! WildcardIn(objs)
+    for i in range(0, len(a:objs) - 1)
+        if a:objs[i] == '_'
+            return 1
+        endif
+    endfor
+
+    return 0
+endfunction
+
+function! GetAliases(objs)
+    return join(filter(a:objs, 'v:val =~ ".*=>.*"'), ', ')
+endfunction
+
+function! GetNoneAliases(objs)
+    if WildcardIn(a:objs)
+        return '_'
+    else
+        return join(filter(a:objs, 'v:val !~ ".*=>.*"'), ', ')
+    endif
+endfunction

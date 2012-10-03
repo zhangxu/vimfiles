@@ -1,0 +1,5 @@
+My vim plugin collections and customizations
+
+Customizations
+* scala code: folding by indents
+* scala code: Organizing imports by <C-S-o>

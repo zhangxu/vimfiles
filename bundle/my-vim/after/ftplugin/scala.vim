@@ -64,7 +64,11 @@ function! OrganizeImps()
         if len(objs) > 1
             let import = "import" . " " . packages[i] . ".{" . join(objs, ", ") . "}"
         else
-            let import = "import" . " " . packages[i] . "." . objs[0]
+            if objs[0] =~ ".*=>.*"
+                let import = "import" . " " . packages[i] . ".{" . objs[0] . "}"
+            else
+                let import = "import" . " " . packages[i] . "." . objs[0]
+            endif
         endif
 
         let results = add(results, import)

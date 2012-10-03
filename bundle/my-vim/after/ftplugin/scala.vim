@@ -37,13 +37,18 @@ function! GetScalaFold(lnum)
 endfunction
 
 function! OrganizeImps()
+    " gather imports in dict
     norm! G$
     let end = line(".")
     let entries = filter(getline(1, end), 'v:val =~ "^import"')
-    let imports = {}
+
+    let topLvlImps = {}
     for i in range(0, len(entries)-1)
         let sections = split(substitute(entries[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g"), "\\.")
         let package = join(sections[:len(sections) - 2], ".")
+        let topLvl = sections[0] . "." . sections[1]
+
+        let imports = get(topLvlImps, topLvl, {})
 
         let obj = sections[len(sections) - 1]
         let obj = substitute(obj, "^{", "", "g")
@@ -54,13 +59,45 @@ function! OrganizeImps()
         let objs = filter(copy(objs), 'index(objs, v:val, v:key+1)==-1')
 
         let imports[package] = objs
+
+        let topLvlImps[topLvl] = imports
     endfor
 
+    " delete original imports
+    :g/^import/d
+    :w
+
+    norm! gg
+
+    while getline(line(".")) =~ "^package"
+        +1
+    endwhile
+
+    if getline(line(".")) !~ "\\s+"
+        norm! O
+    endif
+
+    let topLvls = sort(keys(topLvlImps))
+
+    for i in range(0, len(topLvls) - 1)
+        let results = GenImports(topLvlImps[topLvls[i]])
+        let results = add(results, "")
+
+        let failed = append(line("."), results)
+
+        if failed != 1
+            :w
+        endif
+    endfor
+endfunction
+
+function! GenImports(imports)
+    " generate new imports
     let results = []
-    let packages = sort(keys(imports))
+    let packages = sort(keys(a:imports))
 
     for i in range(0, len(packages) - 1)
-        let objs = imports[packages[i]]
+        let objs = a:imports[packages[i]]
         if len(objs) > 1
             let noneAliases = GetNoneAliases(objs)
             let aliases = GetAliases(objs)
@@ -86,27 +123,11 @@ function! OrganizeImps()
                 let import = "import" . " " . packages[i] . "." . objs[0]
             endif
         endif
+
         let results = add(results, import)
     endfor
 
-    :g/^import/d
-    :w
-
-    norm! gg
-
-    while getline(line(".")) =~ "^package"
-        +1
-    endwhile
-
-    if getline(line(".")) !~ "\\s+"
-        norm! O
-    endif
-
-    let failed = append(line("."), results)
-
-    if failed != 1
-        :w
-    endif
+    return results
 endfunction
 
 function! WildcardIn(objs)

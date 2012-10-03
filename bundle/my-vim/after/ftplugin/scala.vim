@@ -88,27 +88,25 @@ function! OrganizeImps()
         endif
         let results = add(results, import)
     endfor
-    for i in range(0, len(results) - 1)
-        :echom results[i]
-    endfor
-"    :g/^import/d
-"    :w
-"
-"    norm! gg
-"
-"    while getline(line(".")) =~ "^package"
-"        +1
-"    endwhile
-"
-"    if getline(line(".")) !~ "\\s+"
-"        norm! O
-"    endif
-"
-"    let failed = append(line("."), results)
-"
-"    if failed != 1
-"        :w
-"    endif
+
+    :g/^import/d
+    :w
+
+    norm! gg
+
+    while getline(line(".")) =~ "^package"
+        +1
+    endwhile
+
+    if getline(line(".")) !~ "\\s+"
+        norm! O
+    endif
+
+    let failed = append(line("."), results)
+
+    if failed != 1
+        :w
+    endif
 endfunction
 
 function! WildcardIn(objs)
@@ -129,6 +127,11 @@ function! GetNoneAliases(objs)
     if WildcardIn(a:objs)
         return '_'
     else
-        return join(filter(a:objs, 'v:val !~ ".*=>.*"'), ', ')
+        let objs = filter(a:objs, 'v:val !~ ".*=>.*"')
+        if len(objs) > 3
+            return '_'
+        else
+            return join(objs, ', ')
+        endif
     endif
 endfunction

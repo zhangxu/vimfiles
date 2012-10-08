@@ -103,7 +103,7 @@ function! GenImports(imports)
             let aliases = GetAliases(objs)
 
             if len(noneAliases) > 0 && len(aliases) > 0
-                let import = "import" . " " . packages[i] . ".{" . noneAliases . ", " . aliases . "}"
+                let import = "import" . " " . packages[i] . ".{" . aliases . ", " . noneAliases . "}"
             else
                 if len(noneAliases) > 0
                     if noneAliases == '_'

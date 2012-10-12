@@ -54,7 +54,9 @@ map <F1> :help<Space>
 
 "buffer
 map <c-n> :bnext<CR>
+map <c-tab> :bnext<CR>
 map <c-p> :bprev<CR>
+map <c-S-tab> :bprev<CR>
 map ,l :ls<CR>
 map ,d :bd<CR>
 map ,D :BD<CR>

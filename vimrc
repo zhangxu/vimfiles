@@ -53,18 +53,19 @@ set hlsearch
 map <F1> :help<Space>
 
 "buffer
-map ,n :bnext<CR>
-map ,p :bprev<CR>
+map <c-n> :bnext<CR>
+map <c-p> :bprev<CR>
 map ,l :ls<CR>
-map ,d :BD<CR>
+map ,d :bd<CR>
+map ,D :BD<CR>
 map ,e :e<Space>
 map ,x :Explore<Space>
 
 "folding
-map ,o zo
-map ,c zc
-map ,O zO
-map ,C zC
+"map ,o zo
+"map ,c zc
+"map ,O zO
+"map ,C zC
 
 "mimic windows copy/paste behavior
 vmap <c-c> "+y

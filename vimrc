@@ -87,6 +87,9 @@ nmap <F6> :call DebugThis()<CR>
 "clear highlights
 nmap <F7> :let @/=""<CR>
 
+"Ack searching
+nmap ack :Ack<space>
+
 "funtion definitions
 function! RemoveTrailingSpaces()
     let c=col('.')

@@ -73,6 +73,10 @@ function! OrganizeImps()
         +1
     endwhile
 
+    while getline(line(".")) =~ "^$"
+        norm! dd
+    endwhile
+
     if getline(line(".")) !~ "\\s+"
         norm! O
     endif

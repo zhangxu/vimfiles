@@ -46,6 +46,9 @@ set statusline=%t[%P][%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %
 
 "highlight search result
 set hlsearch
+"
+"netrw hiding list see http://vimdoc.sourceforge.net/htmldoc/pi_netrw.html#g:netrw_list_hide
+let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
 
 "key mappings
 

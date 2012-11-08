@@ -1,5 +1,8 @@
 set nocompatible
 
+"example of disable a specific plugin
+"let g:pathogen_disabled = ['supertab']
+
 call pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -51,6 +54,8 @@ set hlsearch
 let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
 
 "key mappings
+
+inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 
 "help
 map <F1> :help<Space>

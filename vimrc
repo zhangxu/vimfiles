@@ -109,10 +109,6 @@ function! RemoveTrailingSpaces()
     call cursor(l, c)
 endfunction
 
-fun! NFH_suffix(filename)
-
-endfun
-
 function! RunThis()
     let filename = expand('%:p')
     :echohl ErrorMsg

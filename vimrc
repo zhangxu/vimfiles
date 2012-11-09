@@ -50,12 +50,6 @@ set statusline=%t[%P][%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %
 "highlight search result
 set hlsearch
 
-"netrw customization
-"netrw hiding list see http://vimdoc.sourceforge.net/htmldoc/pi_netrw.html#g:netrw_list_hide
-let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
-let g:netrw_scp_cmd = '"e:\exec\putty\pscp.exe" -q -batch'
-let g:netrw_sftp_cmd= '"e:\exec\putty\psftp.exe"'
-
 "key mappings
 
 inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
@@ -159,7 +153,11 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 autocmd GUIEnter * simalt ~x
 
 " netrw settings {{{
-:let g:netrw_liststyle = 1
+let g:netrw_liststyle=3 "tree style
+let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
+let g:netrw_scp_cmd='"e:\exec\putty\pscp.exe" -q -batch'
+let g:netrw_sftp_cmd='"e:\exec\putty\psftp.exe"'
+
 augroup ADS_dirchange
    au!
    if version >= 700

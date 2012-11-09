@@ -121,6 +121,9 @@ function! RunThis()
     elseif match(filename, "\.gradle$") > 0
         let cmd = '!gradle.bat -b ' . expand('%') . ' ' . input('task: ') . ' ' . input('-D parameters: ')
         exec(cmd)
+    elseif match(filename, "\.bat$") > 0
+        let cmd = '!' . expand('%') . ' ' . input('parameters: ')
+        exec(cmd)
     elseif match(filename, "\.vim$") > 0
         :so %
     else

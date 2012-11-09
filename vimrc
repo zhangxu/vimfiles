@@ -49,9 +49,12 @@ set statusline=%t[%P][%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %
 
 "highlight search result
 set hlsearch
-"
+
+"netrw customization
 "netrw hiding list see http://vimdoc.sourceforge.net/htmldoc/pi_netrw.html#g:netrw_list_hide
 let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
+let g:netrw_scp_cmd = '"e:\exec\putty\pscp.exe" -q -batch'
+let g:netrw_sftp_cmd= '"e:\exec\putty\psftp.exe"'
 
 "key mappings
 
@@ -105,6 +108,10 @@ function! RemoveTrailingSpaces()
     :%s/\s\+$//e
     call cursor(l, c)
 endfunction
+
+fun! NFH_suffix(filename)
+
+endfun
 
 function! RunThis()
     let filename = expand('%:p')

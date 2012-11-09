@@ -58,14 +58,16 @@ inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 map <F1> :help<Space>
 
 "buffer
-map <c-n> :bnext<CR>
 map <c-tab> :bnext<CR>
-map <c-p> :bprev<CR>
+map <c-n> :tabn<CR>
 map <c-S-tab> :bprev<CR>
+map <c-p> :tabp<CR>
 map ,l :ls<CR>
 map ,d :bd<CR>
+map ,c :tabc<CR>
 map ,D :BD<CR>
 map ,e :e<Space>
+map ,E :tabe<Space>
 map ,x :Explore<Space>
 
 "folding
@@ -153,7 +155,7 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 autocmd GUIEnter * simalt ~x
 
 " netrw settings {{{
-let g:netrw_liststyle=3 "tree style
+let g:netrw_liststyle=1
 let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
 let g:netrw_scp_cmd='"e:\exec\putty\pscp.exe" -q -batch'
 let g:netrw_sftp_cmd='"e:\exec\putty\psftp.exe"'

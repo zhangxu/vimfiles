@@ -155,8 +155,9 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 autocmd GUIEnter * simalt ~x
 
 " netrw settings {{{
-let g:netrw_liststyle=3
-let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,\.settings,\.class,\.pyc,\.classpath,\.project"
+let g:netrw_liststyle=1
+"let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,.*\.settings,.*\.class,.*\.pyc,\.classpath,\.project"
+let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
 let g:netrw_scp_cmd='"e:\exec\putty\pscp.exe" -q -batch'
 let g:netrw_sftp_cmd='"e:\exec\putty\psftp.exe"'
 

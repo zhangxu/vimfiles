@@ -50,7 +50,7 @@ function! OrganizeImps()
             let package = join(sections[:len(sections) - 2], ".")
             let topLvl = sections[0] . "." . sections[1]
         else
-            let package =""
+            let package = "_rel_"
             let topLvl = sections[0]
         endif
 
@@ -130,7 +130,11 @@ function! GenImports(imports)
             if objs[0] =~ ".*=>.*"
                 let import = "import" . " " . packages[i] . ".{" . objs[0] . "}"
             else
-                let import = "import" . " " . packages[i] . "." . objs[0]
+                if packages[i] =~ "_rel_"
+                    let import = "import" . " " . objs[0]
+                else
+                    let import = "import" . " " . packages[i] . "." . objs[0]
+                endif
             endif
         endif
 

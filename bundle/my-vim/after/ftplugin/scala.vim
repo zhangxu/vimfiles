@@ -153,10 +153,11 @@ function! GetNoneAliases(objs)
         return '_'
     else
         let objs = filter(a:objs, 'v:val !~ ".*=>.*"')
-        if len(objs) > 3
-            return '_'
-        else
-            return join(objs, ', ')
-        endif
+        return join(objs, ', ')
+        "if len(objs) > 3
+            "return '_'
+        "else
+            "return join(objs, ', ')
+        "endif
     endif
 endfunction

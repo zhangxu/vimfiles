@@ -45,8 +45,14 @@ function! OrganizeImps()
     let topLvlImps = {}
     for i in range(0, len(entries)-1)
         let sections = split(substitute(entries[i][len('import'):], "^\\s\\+\\|\\s\\+$","","g"), "\\.")
-        let package = join(sections[:len(sections) - 2], ".")
-        let topLvl = sections[0] . "." . sections[1]
+
+        if len(sections) > 1
+            let package = join(sections[:len(sections) - 2], ".")
+            let topLvl = sections[0] . "." . sections[1]
+        else
+            let package =""
+            let topLvl = sections[0]
+        endif
 
         let imports = get(topLvlImps, topLvl, {})
 
@@ -81,7 +87,7 @@ function! OrganizeImps()
         norm! O
     endif
 
-    let topLvls = sort(keys(topLvlImps))
+    let topLvls = reverse(sort(keys(topLvlImps)))
 
     for i in range(0, len(topLvls) - 1)
         let results = GenImports(topLvlImps[topLvls[i]])

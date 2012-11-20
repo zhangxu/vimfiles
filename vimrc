@@ -160,6 +160,7 @@ let g:netrw_liststyle=1
 let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
 let g:netrw_scp_cmd='"e:\exec\putty\pscp.exe" -q -batch'
 let g:netrw_sftp_cmd='"e:\exec\putty\psftp.exe"'
+let g:netrw_localmovecmd= '"cmd.exe /C move"'
 
 augroup ADS_dirchange
    au!

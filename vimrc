@@ -21,7 +21,7 @@ set nobackup
 set viminfo=""
 
 "set font
-set gfn=Inconsolata:h11:cANSI
+set gfn=Lucida\ Console:h10:cANSI
 
 "show tabs and trailing spaces
 set list

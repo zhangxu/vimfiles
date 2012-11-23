@@ -11,6 +11,9 @@ colorscheme molokai
 "show line number
 set number
 
+"highlight current line
+set cursorline
+
 "disable menu bar
 set go-=m go-=r
 

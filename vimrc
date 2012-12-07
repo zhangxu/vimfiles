@@ -118,7 +118,7 @@ function! RunThis()
         let cmd = '!ant.bat -f ' . expand('%') . ' ' . input('target: ') . ' ' . input('-D parameters: ')
         exec(cmd)
     elseif match(filename, "\.scala$") > 0
-        let cmd = '!scala.bat -deprecation '. expand('%')
+        let cmd = '!scala.bat -unchecked -deprecation '. expand('%')
         exec(cmd)
     elseif match(filename, "\.gradle$") > 0
         let cmd = '!gradle.bat -b ' . expand('%') . ' ' . input('task: ') . ' ' . input('-D parameters: ')

@@ -74,10 +74,10 @@ map ,E :tabe<Space>
 map ,x :Explore<Space>
 
 "folding
-"map ,o zo
-"map ,c zc
-"map ,O zO
-"map ,C zC
+map oo zo
+map cc zc
+map OO zO
+map CC zC
 
 "mimic windows copy/paste behavior
 vmap <c-c> "+y

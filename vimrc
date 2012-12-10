@@ -74,9 +74,9 @@ map ,E :tabe<Space>
 map ,x :Explore<Space>
 
 "folding
-map oo zo
+map ff zo
 map cc zc
-map OO zO
+map FF zO
 map CC zC
 
 "mimic windows copy/paste behavior

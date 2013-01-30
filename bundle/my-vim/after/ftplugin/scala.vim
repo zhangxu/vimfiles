@@ -5,9 +5,9 @@ setlocal shiftwidth=4
 setlocal expandtab
 setlocal textwidth=80
 "folding
-setlocal foldmethod=expr
-setlocal foldexpr=GetScalaFold(v:lnum)
-setlocal foldlevel=1
+"setlocal foldmethod=expr
+"setlocal foldexpr=GetScalaFold(v:lnum)
+"setlocal foldlevel=1
 
 "organize imports
 nmap <C-S-o> :call OrganizeImps()<CR>

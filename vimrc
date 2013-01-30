@@ -26,6 +26,7 @@ set viminfo=""
 "set font
 set gfn=Lucida\ Console:h10:cANSI
 
+
 "show tabs and trailing spaces
 set list
 set listchars=tab:>.,trail:.,nbsp:%,eol:¶
@@ -160,9 +161,11 @@ autocmd GUIEnter * simalt ~x
 " netrw settings {{{
 let g:netrw_liststyle=1
 "let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,.*\.settings,.*\.class,.*\.pyc,\.classpath,\.project"
+let g:netrw_cygwin = 0
 let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
-let g:netrw_scp_cmd='"e:\exec\putty\pscp.exe" -q -batch'
-let g:netrw_sftp_cmd='"e:\exec\putty\psftp.exe"'
+let g:netrw_list_cmd = "e:\exec\putty\plink.exe -i Z:\id_rsa.ppk ls -Fa "
+let g:netrw_scp_cmd='e:\exec\putty\pscp.exe -i Z:\id_rsa.ppk -q '
+let g:netrw_sftp_cmd='e:\exec\putty\psftp.exe -i Z:\id_rsa.ppk '
 let g:netrw_localmovecmd= '"cmd.exe /C move"'
 
 augroup ADS_dirchange

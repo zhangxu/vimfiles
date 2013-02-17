@@ -14,6 +14,10 @@ set number
 "highlight current line
 set cursorline
 
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+
 "disable menu bar
 set go-=m go-=r
 
@@ -25,7 +29,7 @@ set viminfo=""
 
 "set font
 set gfn=Lucida\ Console:h10:cANSI
-
+set guifontwide=NSimsun:h12
 
 "show tabs and trailing spaces
 set list
@@ -162,6 +166,7 @@ autocmd GUIEnter * simalt ~x
 let g:netrw_liststyle=1
 "let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,.*\.settings,.*\.class,.*\.pyc,\.classpath,\.project"
 let g:netrw_cygwin = 0
+let g:netrw_silent = 1
 let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
 let g:netrw_list_cmd = "e:\exec\putty\plink.exe -i Z:\id_rsa.ppk ls -Fa "
 let g:netrw_scp_cmd='e:\exec\putty\pscp.exe -i Z:\id_rsa.ppk -q '

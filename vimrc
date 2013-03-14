@@ -14,10 +14,6 @@ set number
 "highlight current line
 set cursorline
 
-set enc=utf-8
-set fileencoding=utf-8
-set fileencodings=ucs-bom,utf8,prc
-
 "disable menu bar
 set go-=m go-=r
 
@@ -29,7 +25,6 @@ set viminfo=""
 
 "set font
 set gfn=Lucida\ Console:h10:cANSI
-set guifontwide=NSimsun:h12
 
 "show tabs and trailing spaces
 set list
@@ -104,6 +99,13 @@ nmap <F7> :let @/=""<CR>
 
 "Ack searching
 nmap ack :Ack<space>
+
+" Bubble single lines
+nmap <S-K> ddkP
+nmap <S-J> ddp
+" Bubble multiple lines
+vmap <S-K> xkP`[V`]
+vmap <S-J> xp`[V`]
 
 "funtion definitions
 function! RemoveTrailingSpaces()

@@ -15,7 +15,8 @@ set number
 set cursorline
 
 "disable menu bar
-set go-=m go-=r
+"set go-=m go-=r
+set guioptions=
 
 "disable backup
 set nobackup
@@ -101,11 +102,11 @@ nmap <F7> :let @/=""<CR>
 nmap ack :Ack<space>
 
 " Bubble single lines
-nmap <S-K> ddkP
-nmap <S-J> ddp
+nmap <C-S-K> ddkP
+nmap <C-S-J> ddp
 " Bubble multiple lines
-vmap <S-K> xkP`[V`]
-vmap <S-J> xp`[V`]
+vmap <C-S-K> xkP`[V`]
+vmap <C-S-J> xp`[V`]
 
 "funtion definitions
 function! RemoveTrailingSpaces()

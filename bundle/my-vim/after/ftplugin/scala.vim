@@ -3,7 +3,9 @@ setlocal softtabstop=0
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
-setlocal textwidth=80
+"setlocal textwidth=100
+set colorcolumn=101
+highlight ColorColumn guibg=Black
 "folding
 "setlocal foldmethod=expr
 "setlocal foldexpr=GetScalaFold(v:lnum)

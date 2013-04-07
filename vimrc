@@ -7,6 +7,7 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 colorscheme molokai
+hi PreProc gui=bold,italic
 
 "show line number
 set number

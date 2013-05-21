@@ -9,6 +9,7 @@ filetype plugin indent on
 colorscheme molokai
 hi PreProc gui=bold,italic
 
+
 "show line number
 set number
 
@@ -165,6 +166,9 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
 autocmd GUIEnter * simalt ~x
+
+" http://www.vim.org/scripts/script.php?script_id=687
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 220)
 
 " netrw settings {{{
 let g:netrw_liststyle=1

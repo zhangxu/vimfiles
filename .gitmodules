@@ -28,3 +28,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "bundle/yaml"]
+	path = bundle/yaml
+	url = git://github.com/vim-scripts/yaml.vim.git

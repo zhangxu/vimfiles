@@ -205,3 +205,22 @@ else
   nmap ,cl :let @*=expand("%:p")<CR>
 endif
 
+nnoremap <A-=> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)+1)',
+ \ '')<CR>
+nnoremap <A--> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)-1)',
+ \ '')<CR>
+
+let g:cursize=10
+
+nnoremap <A-0> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(g:cursize)',
+ \ '')<CR>
+

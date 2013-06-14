@@ -7,8 +7,6 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 colorscheme molokai
-hi PreProc gui=bold,italic
-
 
 "show line number
 set number
@@ -28,6 +26,8 @@ set viminfo=""
 
 "set font
 set gfn=Lucida\ Console:h10:cANSI
+"set gfn=ProggySquareTTSZ:h14:cANSI
+"set gfn=ProggyCleanTTSZ:h14:cANSI
 
 "show tabs and trailing spaces
 set list
@@ -103,12 +103,13 @@ nmap <F7> :let @/=""<CR>
 "Ack searching
 nmap ack :Ack<space>
 
-" Bubble single lines
-nmap <C-S-K> ddkP
-nmap <C-S-J> ddp
-" Bubble multiple lines
-vmap <C-S-K> xkP`[V`]
-vmap <C-S-J> xp`[V`]
+"bubble line(s)
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "funtion definitions
 function! RemoveTrailingSpaces()

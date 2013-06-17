@@ -7,6 +7,7 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 colorscheme molokai
+hi Comment guifg=#008000
 
 "show line number
 set number
@@ -169,7 +170,7 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 220)
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
 
 " netrw settings {{{
 let g:netrw_liststyle=1

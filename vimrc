@@ -22,6 +22,9 @@ set guioptions=
 "disable backup
 set nobackup
 
+"disable swap file
+set noswapfile
+
 "disable the ~/_viminfo file
 set viminfo=""
 

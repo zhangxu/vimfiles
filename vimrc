@@ -23,7 +23,10 @@ set guioptions=
 set nobackup
 
 "disable swap file
-set noswapfile
+"set noswapfile
+if has("win32")
+    set directory=$TMP
+endif
 
 "disable the ~/_viminfo file
 set viminfo=""

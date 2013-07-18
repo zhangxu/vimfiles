@@ -83,6 +83,9 @@ map ,e :e<Space>
 map ,E :tabe<Space>
 map ,x :Explore<Space>
 
+"save buffer
+imap <C-s> <esc>:w<CR>li
+
 "folding
 map ff zo
 map cc zc

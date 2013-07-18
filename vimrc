@@ -68,11 +68,11 @@ set hlsearch
 inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 
 "buffer
-map <c-tab> :call NextBuffer()<CR>:echo bufname('%')<CR>
-map ,d :bd<CR>
-map ,D :BD<CR>
-map ,e :e<Space>
-map ,x :Explore<Space>
+nmap <silent> <c-tab> :call NextBuffer()<CR>
+nmap <Leader>d :bd<CR>
+nmap <Leader>D :BD<CR>
+nmap <Leader>e :e<Space>
+nmap <silent> <Leader>x :call OpenNetrwNavigator()<CR>
 
 "save buffer
 imap <C-s> <esc>:w<CR>li
@@ -175,7 +175,7 @@ let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
 let g:netrw_sort_by="name"
 let g:netrw_silent = 1
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-let g:netrw_winsize=50
+let g:netrw_winsize=winheight(0)-25
 
 " }}}
 
@@ -215,3 +215,24 @@ function! NextBuffer()
         :bnext
     endif
 endfunction
+
+function! OpenNetrwNavigator()
+    let wins=range(1,winnr('$'))
+    let cwd=expand("%:p:h")
+    let found=0
+
+    for win in wins
+        let bufnum=winbufnr(win)
+        if bufname(bufnum)=~"NetrwTreeListing.*"
+            let found=1
+            :exe win . "wincmd w"
+            :exe "Explore " . cwd
+            :break
+        endif
+    endfor
+
+    if found==0
+        exec "25Hexplore! " . cwd
+    endif
+endfunction
+

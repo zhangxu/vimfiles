@@ -68,7 +68,7 @@ set hlsearch
 inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 
 "help
-map <F1> :help<Space>
+"map <F1> :help<Space>
 
 "buffer
 map <c-tab> :bnext<CR>
@@ -101,14 +101,8 @@ nmap <Up> <C-W>+
 nmap <Left> <C-W><
 nmap <Right> <C-W>>
 
-nmap <F5> :call RunThis()<CR>
-nmap <F6> :call DebugThis()<CR>
-
 "clear highlights
 nmap <F7> :let @/=""<CR>
-
-"Ack searching
-nmap ack :Ack<space>
 
 "bubble line(s)
 nnoremap <A-j> :m .+1<CR>==
@@ -179,26 +173,16 @@ autocmd GUIEnter * simalt ~x
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
 
 " netrw settings {{{
-let g:netrw_liststyle=1
+let g:netrw_liststyle=3
+let g:netrw_alto=1
+let g:netrw_browse_split=4
 "let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,.*\.settings,.*\.class,.*\.pyc,\.classpath,\.project"
-let g:netrw_cygwin = 0
-let g:netrw_silent = 1
 let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
-let g:netrw_list_cmd = "e:\exec\putty\plink.exe -i Z:\id_rsa.ppk ls -Fa "
-let g:netrw_scp_cmd='e:\exec\putty\pscp.exe -i Z:\id_rsa.ppk -q '
-let g:netrw_sftp_cmd='e:\exec\putty\psftp.exe -i Z:\id_rsa.ppk '
-let g:netrw_localmovecmd= '"cmd.exe /C move"'
+let g:netrw_sort_by="name"
+let g:netrw_silent = 1
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_winsize=50
 
-augroup ADS_dirchange
-   au!
-   if version >= 700
-      " Make automatic directory changing work with netrw
-      let g:netrw_keepdir = 0
-      au BufFilePost,BufEnter * if !isdirectory(expand('<afile>')) | sil! cd %:p:h | endif
-   else
-      au BufFilePost,BufEnter * sil! cd %:p:h
-   endif
-augroup END
 " }}}
 
 " Convert slashes to backslashes for Windows.

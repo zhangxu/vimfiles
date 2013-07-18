@@ -67,20 +67,11 @@ set hlsearch
 
 inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 
-"help
-"map <F1> :help<Space>
-
 "buffer
-map <c-tab> :bnext<CR>
-map <c-n> :tabn<CR>
-map <c-S-tab> :bprev<CR>
-map <c-p> :tabp<CR>
-map ,l :ls<CR>
+map <c-tab> :call NextBuffer()<CR>:echo bufname('%')<CR>
 map ,d :bd<CR>
-map ,c :tabc<CR>
 map ,D :BD<CR>
 map ,e :e<Space>
-map ,E :tabe<Space>
 map ,x :Explore<Space>
 
 "save buffer
@@ -219,3 +210,8 @@ nnoremap <A-0> :silent! let &guifont = substitute(
  \ '\=eval(g:cursize)',
  \ '')<CR>
 
+function! NextBuffer()
+    if &buftype==''
+        :bnext
+    endif
+endfunction

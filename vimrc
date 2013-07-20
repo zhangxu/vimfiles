@@ -75,6 +75,11 @@ nmap <Leader>D :BW<CR>
 nmap <Leader>e :e<Space>
 nmap <silent> <Leader>x :call OpenNetrwNavigator()<CR>
 
+"NERD tree
+nmap <F2> :NERDTreeToggle<cr>
+nmap <leader>f :NERDTreeFocus<cr>
+nmap <leader>x :NERDTree<space>
+
 "save buffer
 imap <C-s> <esc>:w<CR>li
 

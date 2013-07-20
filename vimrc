@@ -68,17 +68,17 @@ set hlsearch
 inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 
 "buffer
-"nmap <silent> <c-tab> :call NextBuffer()<CR>
 nmap <c-tab> :bnext<CR>
 nmap <Leader>d :bw<CR>
 nmap <Leader>D :BW<CR>
 nmap <Leader>e :e<Space>
-nmap <silent> <Leader>x :call OpenNetrwNavigator()<CR>
+"nmap <silent> ww :call NextWindow()<cr>
+nmap <silent> ww :wincmd w<cr>
 
 "NERD tree
 nmap <F2> :NERDTreeToggle<cr>
-nmap <leader>f :NERDTreeFocus<cr>
-nmap <leader>x :NERDTree<space>
+nmap <silent> <leader>f :NERDTreeFocus<cr>
+nmap <silent> <leader>x :NERDTree<space>
 
 "save buffer
 imap <C-s> <esc>:w<CR>li
@@ -102,7 +102,7 @@ nmap <Left> <C-W><
 nmap <Right> <C-W>>
 
 "clear highlights
-nmap <F7> :let @/=""<CR>
+nmap <silent> <F7> :let @/=""<CR>
 
 "bubble line(s)
 nnoremap <A-j> :m .+1<CR>==
@@ -216,9 +216,13 @@ nnoremap <A-0> :silent! let &guifont = substitute(
  \ '\=eval(g:cursize)',
  \ '')<CR>
 
-function! NextBuffer()
-    if &buftype==''
-        :bnext
+function! NextWindow()
+    :exec 'wincmd w'
+
+    let bufnr=winbufnr(0)
+
+    if buflisted(bufnr) == 0
+        :call NextWindow()
     endif
 endfunction
 

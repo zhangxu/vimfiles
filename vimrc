@@ -72,8 +72,13 @@ nmap <c-tab> :bnext<CR>
 nmap <Leader>d :bw<CR>
 nmap <Leader>D :BW<CR>
 nmap <Leader>e :e<Space>
-"nmap <silent> ww :call NextWindow()<cr>
-nmap <silent> ww :wincmd w<cr>
+
+nmap <silent> mm :wincmd w<cr>
+nmap <silent> m= :wincmd =<cr>
+nmap <silent> mv :wincmd v<cr>
+nmap <silent> ms :wincmd s<cr>
+nmap <silent> mc :wincmd c<cr>
+nmap <silent> mo :wincmd o<cr>
 
 "NERD tree
 nmap <F2> :NERDTreeToggle<cr>

@@ -83,8 +83,8 @@ nmap <silent> mo :wincmd o<cr>
 "NERD tree
 nmap <F2> :NERDTreeToggle<cr>
 nmap <silent> <leader>f :NERDTreeFocus<cr>
-nmap <silent> <leader>x :NERDTree<space>
-
+nmap <leader>x :NERDTree<space>
+nmap <silent> <leader>b :Bookmark<cr>
 "save buffer
 imap <C-s> <esc>:w<CR>li
 
@@ -188,6 +188,12 @@ let g:netrw_silent = 1
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let g:netrw_winsize=winheight(0)-25
 
+" }}}
+" NERD tree settings {{{
+let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
+let NERDTreeShowBookmarks=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeWinSize=41
 " }}}
 
 " Convert slashes to backslashes for Windows.

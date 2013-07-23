@@ -80,11 +80,20 @@ nmap <silent> ms :wincmd s<cr>
 nmap <silent> mc :wincmd c<cr>
 nmap <silent> mo :wincmd o<cr>
 
+nmap <silent> mh :wincmd h<cr>
+nmap <silent> mj :wincmd j<cr>
+nmap <silent> mk :wincmd k<cr>
+nmap <silent> ml :wincmd l<cr>
+
 "NERD tree
-nmap <F2> :NERDTreeToggle<cr>
+nmap <silent> <F2> :NERDTreeToggle<cr>
 nmap <silent> <leader>f :NERDTreeFocus<cr>
 nmap <leader>x :NERDTree<space>
 nmap <silent> <leader>b :Bookmark<cr>
+
+"Taglist
+nmap <silent> <F3> :TlistToggle<cr>
+
 "save buffer
 imap <C-s> <esc>:w<CR>li
 
@@ -195,6 +204,14 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
 " }}}
 
+" }}}
+" Taglist settings {{{
+let Tlist_GainFocus_On_ToggleOpen=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
+let Tlist_File_Fold_Auto_Close=1
+" }}}
+
 " Convert slashes to backslashes for Windows.
 if has('win32')
   nmap ,cs :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
@@ -255,4 +272,5 @@ function! OpenNetrwNavigator()
         exec "25Hexplore! " . cwd
     endif
 endfunction
+
 

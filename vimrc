@@ -193,7 +193,6 @@ let g:netrw_winsize=winheight(0)-25
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
-let NERDTreeWinSize=41
 " }}}
 
 " Convert slashes to backslashes for Windows.

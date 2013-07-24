@@ -149,7 +149,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=1
 " }}}
 
-" }}}
 " Taglist settings {{{
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Exit_OnlyWindow=1

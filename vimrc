@@ -187,5 +187,5 @@ nnoremap <A-0> :silent! let &guifont = substitute(
  \ '\=eval(g:cursize)',
  \ '')<CR>
 
-let tlist_scala_settings='scala;c:class;m:methods;t:traits;l:variables;T:types'
+let tlist_scala_settings='scala;c:class;o:objects;C:case classes;O:case objects;d:methods;t:traits;L:values;l:variables;T:types;p:packages;i:imports;I:implicits'
 

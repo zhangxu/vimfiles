@@ -134,49 +134,6 @@ function! RemoveTrailingSpaces()
     call cursor(l, c)
 endfunction
 
-function! RunThis()
-    let filename = expand('%:p')
-    :echohl ErrorMsg
-    if match(filename, "\.py$") > 0
-        let cmd = '!python ' . expand('%') . ' ' . input('parameters: ')
-        exec(cmd)
-    elseif match(filename, "\.xml$") > 0
-        let cmd = '!ant.bat -f ' . expand('%') . ' ' . input('target: ') . ' ' . input('-D parameters: ')
-        exec(cmd)
-    elseif match(filename, "\.scala$") > 0
-        let cmd = '!scala.bat -unchecked -deprecation '. expand('%')
-        exec(cmd)
-    elseif match(filename, "\.gradle$") > 0
-        let cmd = '!gradle.bat -b ' . expand('%') . ' ' . input('task: ') . ' ' . input('-D parameters: ')
-        exec(cmd)
-    elseif match(filename, "\.bat$") > 0
-        let cmd = '!' . expand('%') . ' ' . input('parameters: ')
-        exec(cmd)
-    elseif match(filename, "\.vim$") > 0
-        :so %
-    else
-        "let answer = confirm('Cannot run this file', "&Cannel")
-        echoerr('Cannot run this type of file: ' . expand('%:p'))
-    endif
-    :echohl None
-endfunction
-
-function! DebugThis()
-    let filename = expand('%:p')
-    :echohl ErrorMsg
-    if match(filename, '\.py$') > 0
-        let cmd = '!python -m pdb ' . expand('%') . ' ' . input('parameters: ')
-        exec(cmd)
-    elseif match(filename, "\.gradle$") > 0
-        let cmd = '!gradle.bat --debug --stacktrace -b ' . expand('%') . ' ' . input('task: ') . ' ' . input('-D parameters: ')
-        exec(cmd)
-    else
-        "let answer = confirm('Cannot debug this file', "&Cannel")
-        echoerr('Cannot debug this type of file: ' . expand('%:p'))
-    endif
-    :echohl None
-endfunction
-
 " remove trailing spaces on save
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
@@ -242,35 +199,4 @@ nnoremap <A-0> :silent! let &guifont = substitute(
  \ ':h\zs\d\+',
  \ '\=eval(g:cursize)',
  \ '')<CR>
-
-function! NextWindow()
-    :exec 'wincmd w'
-
-    let bufnr=winbufnr(0)
-
-    if buflisted(bufnr) == 0
-        :call NextWindow()
-    endif
-endfunction
-
-function! OpenNetrwNavigator()
-    let wins=range(1,winnr('$'))
-    let cwd=expand("%:p:h")
-    let found=0
-
-    for win in wins
-        let bufnum=winbufnr(win)
-        if bufname(bufnum)=~"NetrwTreeListing.*"
-            let found=1
-            :exe win . "wincmd w"
-            :exe "Explore " . cwd
-            :break
-        endif
-    endfor
-
-    if found==0
-        exec "25Hexplore! " . cwd
-    endif
-endfunction
-
 

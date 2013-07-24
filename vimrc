@@ -143,18 +143,6 @@ autocmd GUIEnter * simalt ~x
 " http://www.vim.org/scripts/script.php?script_id=687
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
 
-" netrw settings {{{
-let g:netrw_liststyle=1
-let g:netrw_alto=1
-let g:netrw_browse_split=4
-"let g:netrw_list_hide=".*\.swp,.*\.git,.*\.svn,.*\.hg,target,bin,.*\.settings,.*\.class,.*\.pyc,\.classpath,\.project"
-let g:netrw_list_hide='.*\.swp,.*\.pyc,.*\.class,^\.svn'
-let g:netrw_sort_by="name"
-let g:netrw_silent = 1
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-let g:netrw_winsize=winheight(0)-25
-
-" }}}
 " NERD tree settings {{{
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1

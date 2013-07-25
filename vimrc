@@ -70,7 +70,7 @@ inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 "buffer
 nmap <c-tab> :bnext<CR>
 nmap <Leader>d :bw<CR>
-nmap <Leader>D :BW<CR>
+nmap <Leader>c :BW<CR>
 nmap <Leader>e :e<Space>
 
 nmap <silent> mm :wincmd w<cr>

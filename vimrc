@@ -89,7 +89,7 @@ nmap <silent> ml :wincmd l<cr>
 nmap <silent> <F2> :NERDTreeToggle<cr>
 nmap <silent> <leader>f :NERDTreeFocus<cr>
 nmap <leader>x :NERDTree<space>
-nmap <silent> <leader>b :Bookmark<cr>
+nmap <silent> <leader>b :Bookmark<space>
 
 "Taglist
 nmap <silent> <F3> :TlistToggle<cr>

@@ -59,7 +59,7 @@ set laststatus=2
 set statusline=%t[%P][%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %{buftabs#statusline()}
 
 "show buftabs in statusline
-:let g:buftabs_in_statusline=1
+let g:buftabs_in_statusline=1
 
 "highlight search result
 set hlsearch
@@ -120,12 +120,12 @@ nmap <Right> <C-W>>
 nmap <silent> <F7> :let @/=""<CR>
 
 "bubble line(s)
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <silent> <A-j> :m .+1<CR>==
+nnoremap <silent> <A-k> :m .-2<CR>==
+inoremap <silent> <A-j> <Esc>:m .+1<CR>==gi
+inoremap <silent> <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 
 "funtion definitions
 function! RemoveTrailingSpaces()

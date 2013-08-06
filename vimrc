@@ -66,7 +66,7 @@ set hlsearch
 
 "key mappings
 
-inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
+"inoremap <C-S-Tab> <C-R>=delimitMate#JumpAny("\<S-Tab>")<CR>
 
 "buffer
 nmap <c-tab> :bnext<CR>
@@ -182,4 +182,7 @@ nnoremap <A-0> :silent! let &guifont = substitute(
  \ '')<CR>
 
 let tlist_scala_settings='scala;c:class;o:objects;C:case classes;O:case objects;d:methods;t:traits;L:values;l:variables;T:types;p:packages;i:imports;I:implicits'
+
+let g:SuperTabMappingForward = '<s-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
 

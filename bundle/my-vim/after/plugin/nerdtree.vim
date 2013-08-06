@@ -66,3 +66,13 @@ function! NERDTreeBMSbtHandler(bookmark)
     :silent !start ConEmu "sbt"
 endfunction
 
+call NERDTreeAddKeyMap({
+            \ 'key': 'o',
+            \ 'callback': 'NERDTreeBMOpenHandler',
+            \ 'scope': 'Bookmark' })
+
+function! NERDTreeBMOpenHandler(bookmark)
+    call a:bookmark.open()
+    call a:bookmark.path.getDir().changeToDir()
+endfunction
+

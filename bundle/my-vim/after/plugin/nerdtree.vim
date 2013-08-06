@@ -38,8 +38,13 @@ call NERDTreeAddKeyMap({
             \ 'callback': 'NERDTreeBMConEmuHandler',
             \ 'scope': 'Bookmark' })
 
+let g:OpenNerdtreeBookmark=0
+
 function! NERDTreeBMConEmuHandler(bookmark)
-    call a:bookmark.open()
+    if g:OpenNerdtreeBookmark == 1
+        call a:bookmark.open()
+    endif
+
     call a:bookmark.path.getDir().changeToDir()
     :silent !start ConEmu
 endfunction
@@ -50,7 +55,10 @@ call NERDTreeAddKeyMap({
             \ 'scope': 'Bookmark' })
 
 function! NERDTreeBMGitBashHandler(bookmark)
-    call a:bookmark.open()
+    if g:OpenNerdtreeBookmark == 1
+        call a:bookmark.open()
+    endif
+
     call a:bookmark.path.getDir().changeToDir()
     :silent !start ConEmu "git-bash.bat"
 endfunction
@@ -61,7 +69,10 @@ call NERDTreeAddKeyMap({
             \ 'scope': 'Bookmark' })
 
 function! NERDTreeBMSbtHandler(bookmark)
-    call a:bookmark.open()
+    if g:OpenNerdtreeBookmark == 1
+        call a:bookmark.open()
+    endif
+
     call a:bookmark.path.getDir().changeToDir()
     :silent !start ConEmu "sbt"
 endfunction

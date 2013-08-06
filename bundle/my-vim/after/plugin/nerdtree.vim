@@ -33,3 +33,36 @@ function! NERDTreeSbtHandler(dirnode)
     :silent !start ConEmu "sbt"
 endfunction
 
+call NERDTreeAddKeyMap({
+            \ 'key': 'cc',
+            \ 'callback': 'NERDTreeBMConEmuHandler',
+            \ 'scope': 'Bookmark' })
+
+function! NERDTreeBMConEmuHandler(bookmark)
+    call a:bookmark.open()
+    call a:bookmark.path.getDir().changeToDir()
+    :silent !start ConEmu
+endfunction
+
+call NERDTreeAddKeyMap({
+            \ 'key': 'cg',
+            \ 'callback': 'NERDTreeBMGitBashHandler',
+            \ 'scope': 'Bookmark' })
+
+function! NERDTreeBMGitBashHandler(bookmark)
+    call a:bookmark.open()
+    call a:bookmark.path.getDir().changeToDir()
+    :silent !start ConEmu "git-bash.bat"
+endfunction
+
+call NERDTreeAddKeyMap({
+            \ 'key': 'cs',
+            \ 'callback': 'NERDTreeBMSbtHandler',
+            \ 'scope': 'Bookmark' })
+
+function! NERDTreeBMSbtHandler(bookmark)
+    call a:bookmark.open()
+    call a:bookmark.path.getDir().changeToDir()
+    :silent !start ConEmu "sbt"
+endfunction
+

@@ -33,18 +33,19 @@ function! NERDTreeSbtHandler(dirnode)
     :silent !start ConEmu "sbt"
 endfunction
 
+if !exists('g:OpenNerdtreeBookmark')
+    let g:OpenNerdtreeBookmark=0
+endif
+
 call NERDTreeAddKeyMap({
             \ 'key': 'cc',
             \ 'callback': 'NERDTreeBMConEmuHandler',
             \ 'scope': 'Bookmark' })
 
-let g:OpenNerdtreeBookmark=0
-
 function! NERDTreeBMConEmuHandler(bookmark)
     if g:OpenNerdtreeBookmark == 1
         call a:bookmark.open()
     endif
-
     call a:bookmark.path.getDir().changeToDir()
     :silent !start ConEmu
 endfunction

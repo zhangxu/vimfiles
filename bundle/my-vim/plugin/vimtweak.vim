@@ -1,4 +1,6 @@
-let g:alpha=200
+if !exists('g:alpha')
+    let g:alpha=200
+endif
 
 function! s:Increase()
     if g:alpha < 250

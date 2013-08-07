@@ -3,34 +3,31 @@ autocmd VimEnter * if !argc() | NERDTree | endif
 call NERDTreeAddKeyMap({
             \ 'key': 'cc',
             \ 'callback': 'NERDTreeConEmuHandler',
-            \ 'quickhelpText': 'Start ConEmu in this folder',
             \ 'scope': 'DirNode' })
 
 function! NERDTreeConEmuHandler(dirnode)
-    call a:dirnode.path.changeToDir()
-    :silent !start ConEmu
+    let path = '"'. a:dirnode.path.str() . '"'
+    call RunConEmu('', path)
 endfunction
 
 call NERDTreeAddKeyMap({
             \ 'key': 'cg',
             \ 'callback': 'NERDTreeGitBashHandler',
-            \ 'quickhelpText': 'Start Git-Bash in this folder',
             \ 'scope': 'DirNode' })
 
 function! NERDTreeGitBashHandler(dirnode)
-    call a:dirnode.path.changeToDir()
-    :silent !start ConEmu "git-bash.bat"
+    let path = '"'. a:dirnode.path.str() . '"'
+    call RunConEmu('git-bash.bat', path)
 endfunction
 
 call NERDTreeAddKeyMap({
             \ 'key': 'cs',
             \ 'callback': 'NERDTreeSbtHandler',
-            \ 'quickhelpText': 'Start SBT in this folder',
             \ 'scope': 'DirNode' })
 
 function! NERDTreeSbtHandler(dirnode)
-    call a:dirnode.path.changeToDir()
-    :silent !start ConEmu "sbt"
+    let path = '"'. a:dirnode.path.str() . '"'
+    call RunConEmu('sbt', path)
 endfunction
 
 if !exists('g:OpenNerdtreeBookmark')
@@ -46,8 +43,9 @@ function! NERDTreeBMConEmuHandler(bookmark)
     if g:OpenNerdtreeBookmark == 1
         call a:bookmark.open()
     endif
-    call a:bookmark.path.getDir().changeToDir()
-    :silent !start ConEmu
+
+    let path = '"'. a:bookmark.path.getDir().str() . '"'
+    call RunConEmu('', path)
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -60,8 +58,8 @@ function! NERDTreeBMGitBashHandler(bookmark)
         call a:bookmark.open()
     endif
 
-    call a:bookmark.path.getDir().changeToDir()
-    :silent !start ConEmu "git-bash.bat"
+    let path = '"'. a:bookmark.path.getDir().str() . '"'
+    call RunConEmu('git-bash.bat', path)
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -74,8 +72,8 @@ function! NERDTreeBMSbtHandler(bookmark)
         call a:bookmark.open()
     endif
 
-    call a:bookmark.path.getDir().changeToDir()
-    :silent !start ConEmu "sbt"
+    let path = '"'. a:bookmark.path.getDir().str() . '"'
+    call RunConEmu('sbt', path)
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -88,3 +86,6 @@ function! NERDTreeBMOpenHandler(bookmark)
     call a:bookmark.path.getDir().changeToDir()
 endfunction
 
+function! RunConEmu(cmd, wdir)
+    exec "silent ! start ConEmu /Dir " . a:wdir . " /cmd " . a:cmd
+endfunction

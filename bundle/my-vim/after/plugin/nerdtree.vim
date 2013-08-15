@@ -11,7 +11,7 @@ function! NERDTreeConEmuHandler(dirnode)
 endfunction
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'cg',
+            \ 'key': 'git',
             \ 'callback': 'NERDTreeGitBashHandler',
             \ 'scope': 'DirNode' })
 
@@ -21,7 +21,7 @@ function! NERDTreeGitBashHandler(dirnode)
 endfunction
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'cs',
+            \ 'key': 'sbt',
             \ 'callback': 'NERDTreeSbtHandler',
             \ 'scope': 'DirNode' })
 
@@ -49,7 +49,7 @@ function! NERDTreeBMConEmuHandler(bookmark)
 endfunction
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'cg',
+            \ 'key': 'git',
             \ 'callback': 'NERDTreeBMGitBashHandler',
             \ 'scope': 'Bookmark' })
 
@@ -63,7 +63,7 @@ function! NERDTreeBMGitBashHandler(bookmark)
 endfunction
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'cs',
+            \ 'key': 'sbt',
             \ 'callback': 'NERDTreeBMSbtHandler',
             \ 'scope': 'Bookmark' })
 

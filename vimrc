@@ -164,25 +164,6 @@ else
   nmap ,cl :let @*=expand("%:p")<CR>
 endif
 
-nnoremap <A-=> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(submatch(0)+1)',
- \ '')<CR>
-nnoremap <A--> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(submatch(0)-1)',
- \ '')<CR>
-
-let g:cursize=10
-
-nnoremap <A-0> :silent! let &guifont = substitute(
- \ &guifont,
- \ ':h\zs\d\+',
- \ '\=eval(g:cursize)',
- \ '')<CR>
-
 let tlist_scala_settings='scala;c:class;o:objects;C:case classes;O:case objects;d:methods;t:traits;L:values;l:variables;T:types;p:packages;i:imports;I:implicits'
 
 let g:SuperTabMappingForward = '<s-space>'

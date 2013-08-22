@@ -1,6 +1,16 @@
 autocmd VimEnter * if !argc() | NERDTree | endif
 
 call NERDTreeAddKeyMap({
+            \ 'key': 'thg',
+            \ 'callback': 'NERDTreeThgHandler',
+            \ 'scope': 'DirNode' })
+
+function! NERDTreeThgHandler(dirnode)
+    let path = '"'. a:dirnode.path.str() . '"'
+    call RunThg(path)
+endfunction
+
+call NERDTreeAddKeyMap({
             \ 'key': 'cc',
             \ 'callback': 'NERDTreeConEmuHandler',
             \ 'scope': 'DirNode' })
@@ -49,6 +59,20 @@ function! NERDTreeBMConEmuHandler(bookmark)
 endfunction
 
 call NERDTreeAddKeyMap({
+            \ 'key': 'thg',
+            \ 'callback': 'NERDTreeBMThgHandler',
+            \ 'scope': 'Bookmark' })
+
+function! NERDTreeBMThgHandler(bookmark)
+    if g:OpenNerdtreeBookmark == 1
+        call a:bookmark.open()
+    endif
+
+    let path = '"'. a:bookmark.path.getDir().str() . '"'
+    call RunThg(path)
+endfunction
+
+call NERDTreeAddKeyMap({
             \ 'key': 'git',
             \ 'callback': 'NERDTreeBMGitBashHandler',
             \ 'scope': 'Bookmark' })
@@ -89,3 +113,8 @@ endfunction
 function! RunConEmu(cmd, wdir)
     exec "silent ! start ConEmu /Dir " . a:wdir . " /cmd " . a:cmd
 endfunction
+
+function! RunThg(wdir)
+    exec "silent ! start thgw.exe -R " . a:wdir
+endfunction
+

@@ -27,9 +27,9 @@ function! s:Reset()
      \ '')
 endfunction
 
-map <silent> <A-=> :call <SID>Increase()<CR>
-map <silent> <A--> :call <SID>Decrease()<CR>
-map <silent> <A-`> :call <SID>Reset()<CR>
+map <silent> <A-=> :call <SID>Increase()<CR>:wincmd =<cr>
+map <silent> <A--> :call <SID>Decrease()<CR>:wincmd =<cr>
+map <silent> <A-`> :call <SID>Reset()<CR>:wincmd =<cr>
 
 "nnoremap <A-=> :silent! let &guifont = substitute(
  "\ &guifont,

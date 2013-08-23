@@ -72,6 +72,7 @@ set hlsearch
 
 "buffer
 nmap <c-tab> :bnext<CR>
+nmap <c-s-tab> :bprev<CR>
 nmap <Leader>d :bw<CR>
 nmap <Leader>c :BW<CR>
 nmap <Leader>e :e<Space>

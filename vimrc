@@ -142,7 +142,8 @@ autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
 " NERD tree settings {{{
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
-let NERDTreeShowLineNumbers=1
+let NERDTreeWinSize=41
+let NERDTreeDirArrows=1
 " }}}
 
 " Taglist settings {{{

@@ -1,4 +1,7 @@
 autocmd VimEnter * if !argc() | NERDTree | endif
+autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
+autocmd FileType nerdtree cnoreabbrev <buffer> bnext <nop>
+autocmd FileType nerdtree cnoreabbrev <buffer> bprev <nop>
 
 call NERDTreeAddKeyMap({
             \ 'key': 'thg',

@@ -33,10 +33,7 @@ set viminfo=""
 
 "set font
 set guifont=Consolas:h10:cANSI
-"set guifont=DejaVu_Sans_Mono:h10:cANSI
-"set gfn=Lucida\ Console:h10:cANSI
-"set gfn=ProggySquareTTSZ:h14:cANSI
-"set gfn=ProggyCleanTTSZ:h14:cANSI
+let g:CurrentFontSize=11
 
 "show tabs and trailing spaces
 set list

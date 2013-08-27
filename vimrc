@@ -168,3 +168,7 @@ let tlist_scala_settings='scala;c:class;o:objects;C:case classes;O:case objects;
 let g:SuperTabMappingForward = '<s-space>'
 let g:SuperTabMappingBackward = '<s-c-space>'
 
+autocmd FileType taglist cnoreabbrev <buffer> bd <nop>
+autocmd FileType taglist cnoreabbrev <buffer> bnext <nop>
+autocmd FileType taglist cnoreabbrev <buffer> bprev <nop>
+

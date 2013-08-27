@@ -1,4 +1,5 @@
 autocmd VimEnter * if !argc() | NERDTree | endif
+
 autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
 autocmd FileType nerdtree cnoreabbrev <buffer> bnext <nop>
 autocmd FileType nerdtree cnoreabbrev <buffer> bprev <nop>
@@ -119,5 +120,63 @@ endfunction
 
 function! RunThg(wdir)
     exec "silent ! start thgw.exe -R " . a:wdir
+endfunction
+
+call NERDTreeAddMenuSeparator()
+
+call NERDTreeAddMenuItem({
+            \ 'text': '(C)reate folders',
+            \ 'shortcut': 'C',
+            \ 'callback': 'Mkdirs' })
+
+function! Mkdirs()
+    let curDirNode = g:NERDTreeDirNode.GetSelected()
+
+    let newNodeName = input("Add a childnode\n".
+                          \ "==========================================================\n".
+                          \ "", curDirNode.path.str() . g:NERDTreePath.Slash(), "file")
+
+    if newNodeName ==# ''
+        call s:echo("Node Creation Aborted.")
+        return
+    endif
+
+    let oldPath = curDirNode.path.str()
+
+    let cwd = g:NERDTreePath
+
+    for name in split(newNodeName, "/")
+        if isdirectory(name)
+            let cwd = cwd.New(name)
+            "let newTreeNode = g:NERDTreeFileNode.findNode(cwd)
+        else
+            call mkdir(name)
+            let cwd = cwd.New(name)
+        endif
+
+        call cwd.changeToDir()
+
+        let newTreeNode = g:NERDTreeFileNode.New(cwd)
+        let parentNode = b:NERDTreeRoot.findNode(cwd.getParent())
+        call parentNode.addChild(newTreeNode, 1)
+        "call newTreeNode.putCursorHere(1, 0)
+    endfor
+
+    call NERDTreeRender()
+
+    let cwd = cwd.New(oldPath)
+
+    call cwd.changeToDir()
+endfunction
+
+function! s:echo(msg)
+    redraw
+    echomsg "NERDTree: " . a:msg
+endfunction
+
+function! s:echoWarning(msg)
+    echohl warningmsg
+    call s:echo(a:msg)
+    echohl normal
 endfunction
 

@@ -148,7 +148,6 @@ function! Mkdirs()
     for name in split(newNodeName, "/")
         if isdirectory(name)
             let cwd = cwd.New(name)
-            "let newTreeNode = g:NERDTreeFileNode.findNode(cwd)
         else
             call mkdir(name)
             let cwd = cwd.New(name)
@@ -159,7 +158,6 @@ function! Mkdirs()
         let newTreeNode = g:NERDTreeFileNode.New(cwd)
         let parentNode = b:NERDTreeRoot.findNode(cwd.getParent())
         call parentNode.addChild(newTreeNode, 1)
-        "call newTreeNode.putCursorHere(1, 0)
     endfor
 
     call NERDTreeRender()

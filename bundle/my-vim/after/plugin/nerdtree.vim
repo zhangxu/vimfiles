@@ -159,6 +159,8 @@ function! Mkdirs()
         call cwd.changeToDir()
     endfor
 
+    echo curDirNode.reveal(cwd)
+
     call NERDTreeRender()
 
     let cwd = cwd.New(oldPath)

@@ -151,13 +151,12 @@ function! Mkdirs()
         else
             call mkdir(name)
             let cwd = cwd.New(name)
+            let newTreeNode = g:NERDTreeFileNode.New(cwd)
+            let parentNode = b:NERDTreeRoot.findNode(cwd.getParent())
+            call parentNode.addChild(newTreeNode, 1)
         endif
 
         call cwd.changeToDir()
-
-        let newTreeNode = g:NERDTreeFileNode.New(cwd)
-        let parentNode = b:NERDTreeRoot.findNode(cwd.getParent())
-        call parentNode.addChild(newTreeNode, 1)
     endfor
 
     call NERDTreeRender()

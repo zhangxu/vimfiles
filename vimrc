@@ -71,8 +71,13 @@ set hlsearch
 nmap <c-tab> :bnext<CR>
 nmap <c-s-tab> :bprev<CR>
 nmap <Leader>d :bw<CR>
-nmap <Leader>c :BW<CR>
+nmap <Leader>k :BW<CR>
 nmap <Leader>e :e<Space>
+
+"tabs
+nmap <tab>n :tabn<cr>
+nmap <tab>p :tabp<cr>
+nmap <tab>c :tabc<cr>
 
 nmap <silent> mm :wincmd w<cr>
 nmap <silent> m= :wincmd =<cr>

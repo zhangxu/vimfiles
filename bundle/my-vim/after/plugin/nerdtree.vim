@@ -5,7 +5,7 @@ autocmd FileType nerdtree cnoreabbrev <buffer> bnext <nop>
 autocmd FileType nerdtree cnoreabbrev <buffer> bprev <nop>
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'thg',
+            \ 'key': 'hg',
             \ 'callback': 'NERDTreeThgHandler',
             \ 'scope': 'DirNode' })
 
@@ -63,7 +63,7 @@ function! NERDTreeBMConEmuHandler(bookmark)
 endfunction
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'thg',
+            \ 'key': 'hg',
             \ 'callback': 'NERDTreeBMThgHandler',
             \ 'scope': 'Bookmark' })
 

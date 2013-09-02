@@ -33,7 +33,7 @@ set viminfo=""
 
 "set font
 set guifont=Consolas:h10:cANSI
-let g:CurrentFontSize=11
+let g:CurrentFontSize=10
 
 "show tabs and trailing spaces
 set list
@@ -176,4 +176,8 @@ let g:SuperTabMappingBackward = '<s-c-space>'
 autocmd FileType taglist cnoreabbrev <buffer> bd <nop>
 autocmd FileType taglist cnoreabbrev <buffer> bnext <nop>
 autocmd FileType taglist cnoreabbrev <buffer> bprev <nop>
+
+autocmd FileType qf cnoreabbrev <buffer> bd <nop>
+autocmd FileType qf cnoreabbrev <buffer> bnext <nop>
+autocmd FileType qf cnoreabbrev <buffer> bprev <nop>
 

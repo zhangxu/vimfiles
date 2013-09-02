@@ -15,7 +15,7 @@ function! NERDTreeThgHandler(dirnode)
 endfunction
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'cc',
+            \ 'key': 'con',
             \ 'callback': 'NERDTreeConEmuHandler',
             \ 'scope': 'DirNode' })
 
@@ -49,7 +49,7 @@ if !exists('g:OpenNerdtreeBookmark')
 endif
 
 call NERDTreeAddKeyMap({
-            \ 'key': 'cc',
+            \ 'key': 'con',
             \ 'callback': 'NERDTreeBMConEmuHandler',
             \ 'scope': 'Bookmark' })
 

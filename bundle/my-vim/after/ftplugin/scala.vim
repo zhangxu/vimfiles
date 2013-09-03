@@ -3,6 +3,7 @@ setlocal softtabstop=0
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
+let g:scala_sort_across_groups=1
 "setlocal textwidth=100
 set colorcolumn=101
 highlight ColorColumn guibg=Black
@@ -12,7 +13,7 @@ highlight ColorColumn guibg=Black
 "setlocal foldlevel=1
 
 "organize imports
-nmap <C-S-o> :call OrganizeImps()<CR>
+"nmap <silent> <buffer> <C-S-o> :call <SID>OrganizePkgs()<cr>:call <SID>OrganizeImps()<cr>:SortScalaImports<cr>
 
 function! GetScalaFold(lnum)
 
@@ -38,7 +39,21 @@ function! GetScalaFold(lnum)
     endif
 endfunction
 
-function! OrganizeImps()
+function! s:OrganizePkgs()
+    norm! G$
+    let end = line(".")
+    let entries = filter(getline(1, end), 'v:val =~ "^package"')
+
+    :g/^package/d
+    norm! gg
+
+    for i in range(0, len(entries)-1)
+        let name = substitute(entries[i][len('package'):], "^\\s\\+\\|\\s\\+$","","g")
+        call append(line(".") - 1, "package " . name)
+    endfor
+endfunction
+
+function! s:OrganizeImps()
     " gather imports in dict
     norm! G$
     let end = line(".")
@@ -73,7 +88,6 @@ function! OrganizeImps()
 
     " delete original imports
     :g/^import/d
-    :w
 
     norm! gg
 
@@ -93,13 +107,13 @@ function! OrganizeImps()
 
     for i in range(0, len(topLvls) - 1)
         let results = GenImports(topLvlImps[topLvls[i]])
-        let results = add(results, "")
+        "let results = add(results, "")
 
-        let failed = append(line("."), results)
+        let failed = append(line(".") - 1, results)
 
-        if failed != 1
-            :w
-        endif
+        "if failed != 1
+            ":w
+        "endif
     endfor
 endfunction
 

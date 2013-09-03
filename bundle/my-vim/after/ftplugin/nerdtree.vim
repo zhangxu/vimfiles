@@ -1,3 +1,3 @@
 
-nmap bb :Bookmark<space>
-nmap BB :Bookmark<cr>
+nmap <buffer> bb :Bookmark<space>
+nmap <silent> <buffer> BB :Bookmark<cr>

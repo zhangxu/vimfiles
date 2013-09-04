@@ -37,3 +37,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/zhangxu/vim-scala.git
+[submodule "bundle/scratch-utility"]
+	path = bundle/scratch-utility
+	url = https://github.com/zhangxu/scratch-utility.git

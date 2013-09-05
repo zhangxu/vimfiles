@@ -179,3 +179,39 @@ function! s:echoWarning(msg)
     echohl normal
 endfunction
 
+call NERDTreeAddMenuSeparator()
+
+let hgsubmenu = NERDTreeAddSubmenu({
+                \ 'text': '(h)g operations',
+                \ 'shortcut': 'h' })
+
+call NERDTreeAddMenuItem({
+                \ 'text': '(a)dd',
+                \ 'shortcut': 'a',
+                \ 'callback': 'HgAdd',
+                \ 'parent': hgsubmenu })
+
+function! HgAdd()
+    echo "Hg Add"
+endfunction
+
+call NERDTreeAddMenuItem({
+                \ 'text': '(d)elete',
+                \ 'shortcut': 'd',
+                \ 'callback': 'HgDelete',
+                \ 'parent': hgsubmenu })
+
+function! HgDelete()
+    echo "Hg Delete"
+endfunction
+
+call NERDTreeAddMenuItem({
+                \ 'text': '(m)ove',
+                \ 'shortcut': 'm',
+                \ 'callback': 'HgMove',
+                \ 'parent': hgsubmenu })
+
+function! HgMove()
+    echo "Hg Move"
+endfunction
+

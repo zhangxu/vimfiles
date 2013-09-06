@@ -192,7 +192,9 @@ call NERDTreeAddMenuItem({
                 \ 'parent': hgsubmenu })
 
 function! HgAdd()
-    echo "Hg Add"
+    let curPath = g:NERDTreeFileNode.GetSelected().path.str()
+
+    exec "! hg add " . curPath
 endfunction
 
 call NERDTreeAddMenuItem({
@@ -202,7 +204,8 @@ call NERDTreeAddMenuItem({
                 \ 'parent': hgsubmenu })
 
 function! HgDelete()
-    echo "Hg Delete"
+    let curPath = g:NERDTreeFileNode.GetSelected().path.str()
+    exec "! hg remove " . curPath
 endfunction
 
 call NERDTreeAddMenuItem({
@@ -213,5 +216,16 @@ call NERDTreeAddMenuItem({
 
 function! HgMove()
     echo "Hg Move"
+endfunction
+
+call NERDTreeAddMenuItem({
+                \ 'text': '(r)evert',
+                \ 'shortcut': 'r',
+                \ 'callback': 'HgRevert',
+                \ 'parent': hgsubmenu })
+
+function! HgRevert()
+    let curPath = g:NERDTreeFileNode.GetSelected().path.str()
+    exec "! hg revert -C " . curPath
 endfunction
 

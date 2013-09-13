@@ -136,10 +136,12 @@ endfunction
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
-autocmd GUIEnter * simalt ~x
+" autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 
 " NERD tree settings {{{
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")

@@ -122,8 +122,6 @@ function! RunThg(wdir)
     exec "silent ! start thgw.exe -R " . a:wdir
 endfunction
 
-call NERDTreeAddMenuSeparator()
-
 call NERDTreeAddMenuItem({
             \ 'text': '(C)reate folders',
             \ 'shortcut': 'C',

@@ -140,8 +140,9 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " http://www.vim.org/scripts/script.php?script_id=687
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
+"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
+"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 1)
+autocmd GUIEnter * :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 " NERD tree settings {{{
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")

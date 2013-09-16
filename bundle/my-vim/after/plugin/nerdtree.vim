@@ -10,7 +10,7 @@ call NERDTreeAddKeyMap({
             \ 'scope': 'DirNode' })
 
 function! NERDTreePythonHandler(dirnode)
-    let path = '"'. a:dirnode.path.str() . '"'
+    let path = a:dirnode.path.str()
     call RunPython(path)
 endfunction
 
@@ -82,7 +82,7 @@ function! NERDTreeBMPythonHandler(bookmark)
         call a:bookmark.open()
     endif
 
-    let path = '"'. a:bookmark.path.getDir().str() . '"'
+    let path = a:bookmark.path.getDir().str()
     call RunPython(path)
 endfunction
 
@@ -269,6 +269,16 @@ function! VeActivate()
 endfunction
 
 function! RunPython(path)
-    call RunConEmu('python', a:path)
+    if filereadable(a:path . "/.ve")
+        let envpath = readfile(a:path . "/.ve")[0]
+
+        if has("win32")
+            let cmd = envpath . "\\Scripts\\activate.bat"
+
+            exec "silent ! start ConEmu /Dir " . a:path . " /cmd \"Cmd.exe /k " . cmd . "\""
+        endif
+    else
+        call RunConEmu('python', a:path)
+    endif
 endfunction
 

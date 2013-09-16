@@ -32,7 +32,8 @@ endif
 set viminfo=""
 
 "set font
-set guifont=Consolas:h10:cANSI
+"set guifont=Consolas:h10:cANSI
+set guifont=Hermit:h10:cANSI
 let g:CurrentFontSize=10
 
 "show tabs and trailing spaces
@@ -148,7 +149,7 @@ autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=41
-let NERDTreeDirArrows=1
+"let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\~$', 'target$[[dir]]']
 " }}}
 

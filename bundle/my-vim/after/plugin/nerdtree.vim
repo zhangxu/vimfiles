@@ -5,6 +5,16 @@ autocmd FileType nerdtree cnoreabbrev <buffer> bnext <nop>
 autocmd FileType nerdtree cnoreabbrev <buffer> bprev <nop>
 
 call NERDTreeAddKeyMap({
+            \ 'key': 'py',
+            \ 'callback': 'NERDTreePythonHandler',
+            \ 'scope': 'DirNode' })
+
+function! NERDTreePythonHandler(dirnode)
+    let path = '"'. a:dirnode.path.str() . '"'
+    call RunPython(path)
+endfunction
+
+call NERDTreeAddKeyMap({
             \ 'key': 'hg',
             \ 'callback': 'NERDTreeThgHandler',
             \ 'scope': 'DirNode' })
@@ -60,6 +70,20 @@ function! NERDTreeBMConEmuHandler(bookmark)
 
     let path = '"'. a:bookmark.path.getDir().str() . '"'
     call RunConEmu('', path)
+endfunction
+
+call NERDTreeAddKeyMap({
+            \ 'key': 'py',
+            \ 'callback': 'NERDTreeBMPythonHandler',
+            \ 'scope': 'Bookmark' })
+
+function! NERDTreeBMPythonHandler(bookmark)
+    if g:OpenNerdtreeBookmark == 1
+        call a:bookmark.open()
+    endif
+
+    let path = '"'. a:bookmark.path.getDir().str() . '"'
+    call RunPython(path)
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -225,5 +249,26 @@ call NERDTreeAddMenuItem({
 function! HgRevert()
     let curPath = g:NERDTreeFileNode.GetSelected().path.str()
     exec "! hg revert -C " . curPath
+endfunction
+
+call NERDTreeAddMenuSeparator()
+
+let vesubmenu = NERDTreeAddSubmenu({
+                \ 'text': 'virtual(e)nv operations',
+                \ 'shortcut': 'e' })
+
+call NERDTreeAddMenuItem({
+                \ 'text': '(a)ctivate',
+                \ 'shortcut': 'a',
+                \ 'callback': 'VeActivate',
+                \ 'parent': vesubmenu })
+
+function! VeActivate()
+    let curPath = g:NERDTreeFileNode.GetSelected().path.str()
+
+endfunction
+
+function! RunPython(path)
+    call RunConEmu('python', a:path)
 endfunction
 

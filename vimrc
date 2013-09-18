@@ -32,9 +32,8 @@ endif
 set viminfo=""
 
 "set font
-"set guifont=Consolas:h10:cANSI
-set guifont=Hermit:h10:cANSI
-let g:CurrentFontSize=10
+set guifont=DejaVu\ Sans\ Mono:h9:cANSI
+let g:CurrentFontSize=9
 
 "show tabs and trailing spaces
 set list

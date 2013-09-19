@@ -79,17 +79,17 @@ nmap <tab>n :tabn<cr>
 nmap <tab>p :tabp<cr>
 nmap <tab>c :tabc<cr>
 
-nmap <silent> mm :wincmd w<cr>
-nmap <silent> m= :wincmd =<cr>
-nmap <silent> mv :wincmd v<cr>
-nmap <silent> ms :wincmd s<cr>
-nmap <silent> mc :wincmd c<cr>
-nmap <silent> mo :wincmd o<cr>
+"nmap <silent> mm :wincmd w<cr>
+"nmap <silent> m= :wincmd =<cr>
+"nmap <silent> mv :wincmd v<cr>
+"nmap <silent> ms :wincmd s<cr>
+"nmap <silent> mc :wincmd c<cr>
+"nmap <silent> mo :wincmd o<cr>
 
-nmap <silent> mh :wincmd h<cr>
-nmap <silent> mj :wincmd j<cr>
-nmap <silent> mk :wincmd k<cr>
-nmap <silent> ml :wincmd l<cr>
+"nmap <silent> mh :wincmd h<cr>
+"nmap <silent> mj :wincmd j<cr>
+"nmap <silent> mk :wincmd k<cr>
+"nmap <silent> ml :wincmd l<cr>
 
 "NERD tree
 nmap <silent> <F2> :NERDTreeToggle<cr>
@@ -136,12 +136,12 @@ endfunction
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
-" autocmd GUIEnter * simalt ~x
+autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
+"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
+"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 "autocmd GUIEnter * :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 " NERD tree settings {{{

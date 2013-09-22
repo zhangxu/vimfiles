@@ -148,7 +148,7 @@ autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
 let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=41
-"let NERDTreeDirArrows=1
+let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\~$', 'target$[[dir]]']
 " }}}
 

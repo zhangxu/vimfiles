@@ -9,6 +9,8 @@ filetype plugin indent on
 colorscheme molokai
 hi Comment guifg=#008000
 
+set rtp+=$GOROOT/misc/vim
+
 "show line number
 set number
 

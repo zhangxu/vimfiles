@@ -40,3 +40,6 @@
 [submodule "bundle/scratch-utility"]
 	path = bundle/scratch-utility
 	url = https://github.com/zhangxu/scratch-utility.git
+[submodule "bundle/vim-gocode"]
+	path = bundle/vim-gocode
+	url = https://github.com/zhangxu/vim-gocode.git

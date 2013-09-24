@@ -35,7 +35,7 @@ set viminfo=""
 
 "set font
 set guifont=DejaVu\ Sans\ Mono:h9:cANSI
-let g:CurrentFontSize=9
+let g:CurrentFontSize=10
 
 "show tabs and trailing spaces
 set list
@@ -102,13 +102,13 @@ nmap <leader>x :NERDTree<space>
 nmap <silent> <F3> :TlistToggle<cr>
 
 "save buffer
-imap <C-s> <esc>:w<CR>li
+"imap <C-s> <esc>:w<CR>li
 
 "folding
-map ff zo
-map cc zc
-map FF zO
-map CC zC
+"map ff zo
+"map cc zc
+"map FF zO
+"map CC zC
 
 "mimic windows copy/paste behavior
 vmap <c-c> "+y
@@ -117,10 +117,10 @@ nmap <c-v> "+p
 imap <c-v> <S-Insert>
 
 "change window size
-nmap <Down> <C-W>-
-nmap <Up> <C-W>+
-nmap <Left> <C-W><
-nmap <Right> <C-W>>
+"nmap <Down> <C-W>-
+"nmap <Up> <C-W>+
+"nmap <Left> <C-W><
+"nmap <Right> <C-W>>
 
 "clear highlights
 nmap <silent> <F7> :let @/=""<CR>
@@ -138,12 +138,12 @@ endfunction
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
-autocmd GUIEnter * simalt ~x
+"autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
-"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
-"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 "autocmd GUIEnter * :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 " NERD tree settings {{{

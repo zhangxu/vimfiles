@@ -1,5 +1,6 @@
 set nocompatible
 
+set rtp+=$GOROOT/misc/vim
 "example of disable a specific plugin
 "let g:pathogen_disabled = ['supertab']
 
@@ -9,7 +10,6 @@ filetype plugin indent on
 colorscheme molokai
 hi Comment guifg=#008000
 
-set rtp+=$GOROOT/misc/vim
 
 "show line number
 set number

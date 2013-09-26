@@ -7,9 +7,6 @@
 [submodule "bundle/yaml"]
 	path = bundle/yaml
 	url = git://github.com/vim-scripts/yaml.vim.git
-[submodule "bundle/taglist"]
-	path = bundle/taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/zhangxu/vim-scala.git

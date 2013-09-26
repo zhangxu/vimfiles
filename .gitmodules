@@ -10,9 +10,6 @@
 [submodule "bundle/yaml"]
 	path = bundle/yaml
 	url = git://github.com/vim-scripts/yaml.vim.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/zhangxu/nerdtree.git
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git

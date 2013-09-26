@@ -1,3 +1,0 @@
-[submodule "bundle/yaml"]
-	path = bundle/yaml
-	url = git://github.com/vim-scripts/yaml.vim.git

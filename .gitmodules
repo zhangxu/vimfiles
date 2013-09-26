@@ -4,9 +4,6 @@
 [submodule "bundle/buftabs"]
 	path = bundle/buftabs
 	url = git://github.com/vim-scripts/buftabs.git
-[submodule "bundle/bufkill"]
-	path = bundle/bufkill
-	url = git://github.com/vim-scripts/bufkill.vim.git
 [submodule "bundle/vcscommand"]
 	path = bundle/vcscommand
 	url = git://repo.or.cz/vcscommand

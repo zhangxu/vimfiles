@@ -35,7 +35,7 @@ set viminfo=""
 
 "set font
 set guifont=DejaVu\ Sans\ Mono:h9:cANSI
-let g:CurrentFontSize=10
+let g:CurrentFontSize=8
 
 "show tabs and trailing spaces
 set list
@@ -138,12 +138,12 @@ endfunction
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
-"autocmd GUIEnter * simalt ~x
+autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 200)
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
+"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
+"autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 "autocmd GUIEnter * :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
 
 " NERD tree settings {{{
@@ -155,10 +155,10 @@ let NERDTreeIgnore=['\~$', 'target$[[dir]]']
 " }}}
 
 " Taglist settings {{{
-let Tlist_GainFocus_On_ToggleOpen=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_Right_Window=1
-let Tlist_File_Fold_Auto_Close=1
+"let Tlist_GainFocus_On_ToggleOpen=1
+"let Tlist_Exit_OnlyWindow=1
+"let Tlist_Use_Right_Window=1
+"let Tlist_File_Fold_Auto_Close=1
 " }}}
 
 " Convert slashes to backslashes for Windows.

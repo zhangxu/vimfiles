@@ -41,7 +41,7 @@ call NERDTreeAddKeyMap({
 
 function! NERDTreeGitBashHandler(dirnode)
     let path = '"'. a:dirnode.path.str() . '"'
-    call RunConEmu('"set HOME=/home/zhangxu & git-bash.bat"', path)
+    call RunConEmu('"set HOME=/home/zhangxu & git-bash.bat"', path, 'E:\\scripts\\configurations\\StExBar\\icons\\git.ico')
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -111,7 +111,7 @@ function! NERDTreeBMGitBashHandler(bookmark)
     endif
 
     let path = '"'. a:bookmark.path.getDir().str() . '"'
-    call RunConEmu('"set HOME=/home/zhangxu & git-bash.bat"', path)
+    call RunConEmu('"set HOME=/home/zhangxu & git-bash.bat"', path, 'E:\\scripts\\configurations\\StExBar\\icons\\git.ico', 'xxx')
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -138,8 +138,19 @@ function! NERDTreeBMOpenHandler(bookmark)
     call a:bookmark.path.getDir().changeToDir()
 endfunction
 
-function! RunConEmu(cmd, wdir)
-    exec "silent ! start ConEmu /Dir " . a:wdir . " /cmd " . a:cmd
+function! RunConEmu(cmd, wdir, ...)
+    if a:0 > 0
+        let icon = a:1
+    else
+        let icon = ""
+    endif
+
+    if icon == ""
+        exec "silent ! start ConEmu /Dir " . a:wdir . " /cmd " . a:cmd
+    else
+        exec "silent ! start ConEmu" . " /Icon " . icon . " /Dir " . a:wdir . " /cmd " . a:cmd
+    endif
+
 endfunction
 
 function! RunThg(wdir)
@@ -275,10 +286,10 @@ function! RunPython(path)
         if has("win32")
             let cmd = envpath . "\\Scripts\\activate.bat"
 
-            exec "silent ! start ConEmu /Dir " . a:path . " /cmd \"Cmd.exe /k " . cmd . "\""
+            exec "silent ! start ConEmu /Icon E:\\scripts\\configurations\\StExBar\\icons\\python.ico /Dir " . a:path . " /cmd \"Cmd.exe /k " . cmd . "\""
         endif
     else
-        call RunConEmu('python', a:path)
+        call RunConEmu('python', a:path, 'E:\\scripts\\configurations\\StExBar\\icons\\python.ico')
     endif
 endfunction
 

@@ -41,7 +41,7 @@ call NERDTreeAddKeyMap({
 
 function! NERDTreeGitBashHandler(dirnode)
     let path = '"'. a:dirnode.path.str() . '"'
-    call RunConEmu('git-bash.bat', path)
+    call RunConEmu('"set HOME=/home/zhangxu & git-bash.bat"', path)
 endfunction
 
 call NERDTreeAddKeyMap({
@@ -111,7 +111,7 @@ function! NERDTreeBMGitBashHandler(bookmark)
     endif
 
     let path = '"'. a:bookmark.path.getDir().str() . '"'
-    call RunConEmu('git-bash.bat', path)
+    call RunConEmu('"set HOME=/home/zhangxu & git-bash.bat"', path)
 endfunction
 
 call NERDTreeAddKeyMap({

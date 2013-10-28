@@ -1,7 +1,7 @@
 "alway insert spaces instead of tab -- reset
 setlocal softtabstop=0
-setlocal tabstop=2
-setlocal shiftwidth=2
+setlocal tabstop=4
+setlocal shiftwidth=4
 setlocal expandtab
 let g:scala_sort_across_groups=1
 "setlocal textwidth=100

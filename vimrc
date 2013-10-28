@@ -81,6 +81,8 @@ nmap <tab>n :tabn<cr>
 nmap <tab>p :tabp<cr>
 nmap <tab>c :tabc<cr>
 
+"window
+nmap <silent> <Leader>w :wincmd w<cr>
 "nmap <silent> mm :wincmd w<cr>
 "nmap <silent> m= :wincmd =<cr>
 "nmap <silent> mv :wincmd v<cr>
@@ -88,10 +90,10 @@ nmap <tab>c :tabc<cr>
 "nmap <silent> mc :wincmd c<cr>
 "nmap <silent> mo :wincmd o<cr>
 
-"nmap <silent> mh :wincmd h<cr>
-"nmap <silent> mj :wincmd j<cr>
-"nmap <silent> mk :wincmd k<cr>
-"nmap <silent> ml :wincmd l<cr>
+"nmap <silent> <Leader>h :wincmd h<cr>
+"nmap <silent> <Leader>j :wincmd j<cr>
+"nmap <silent> <Leader>k :wincmd k<cr>
+"nmap <silent> <Leader>l :wincmd l<cr>
 
 "NERD tree
 nmap <silent> <F2> :NERDTreeToggle<cr>

@@ -143,7 +143,7 @@ autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
-autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 230)
+autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 220)
 "autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
 "autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 "autocmd GUIEnter * :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)

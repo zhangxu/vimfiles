@@ -1,5 +1,5 @@
 if !exists('g:alpha')
-    let g:alpha=230
+    let g:alpha=220
 endif
 
 let s:original_alpha = g:alpha

@@ -101,7 +101,7 @@ nmap <silent> <leader>f :NERDTreeFocus<cr>
 nmap <leader>x :NERDTree<space>
 
 "Taglist
-nmap <silent> <F3> :TlistToggle<cr>
+"nmap <silent> <F3> :TlistToggle<cr>
 
 "save buffer
 "imap <C-s> <esc>:w<CR>li

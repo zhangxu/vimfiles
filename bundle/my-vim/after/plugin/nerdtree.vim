@@ -146,9 +146,9 @@ function! RunConEmu(cmd, wdir, ...)
     endif
 
     if icon == ""
-        exec "silent ! start ConEmu /Dir " . a:wdir . " /cmd " . a:cmd
+        exec "silent !start ConEmu /Dir " . a:wdir . " /cmd " . a:cmd
     else
-        exec "silent ! start ConEmu" . " /Icon " . icon . " /Dir " . a:wdir . " /cmd " . a:cmd
+        exec "silent !start ConEmu" . " /Icon " . icon . " /Dir " . a:wdir . " /cmd " . a:cmd
     endif
 
 endfunction

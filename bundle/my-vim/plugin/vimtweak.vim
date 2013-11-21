@@ -8,9 +8,9 @@ if !exists('g:ToggleFullScreen')
     let g:ToggleFullScreen = 0
 endif
 
-function! s:Increase()
+function! s:Decrease()
     if g:alpha < 250
-        let g:alpha = g:alpha + 5
+        let g:alpha = g:alpha + 1
     endif
 
     call libcallnr("vimtweak.dll", "SetAlpha", g:alpha)
@@ -18,9 +18,9 @@ function! s:Increase()
     echo "Current Alpha is " . g:alpha
 endfunction
 
-function! s:Decrease()
+function! s:Increase()
     if g:alpha > 5
-        let g:alpha = g:alpha - 5
+        let g:alpha = g:alpha - 1
     endif
     call libcallnr("vimtweak.dll", "SetAlpha", g:alpha)
 

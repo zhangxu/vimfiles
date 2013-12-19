@@ -153,7 +153,7 @@ let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=41
 let NERDTreeDirArrows=1
-let NERDTreeIgnore=['\~$', 'target$[[dir]]']
+let NERDTreeIgnore=['\~$', 'target$[[dir]]', '.pyc', '.db']
 " }}}
 
 " Taglist settings {{{

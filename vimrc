@@ -1,6 +1,8 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 set nocompatible
 
-set rtp+=$GOROOT/misc/vim
+"set rtp+=$GOROOT/misc/vim
 "example of disable a specific plugin
 "let g:pathogen_disabled = ['supertab']
 
@@ -34,8 +36,8 @@ endif
 set viminfo=""
 
 "set font
-set guifont=DejaVu\ Sans\ Mono:h9:cANSI
-let g:CurrentFontSize=8
+set guifont=DejaVu\ Sans\ Mono\ 9
+;let g:CurrentFontSize=8
 
 "show tabs and trailing spaces
 set list
@@ -140,16 +142,18 @@ endfunction
 autocmd BufWritePre,filewritepre * :call RemoveTrailingSpaces()
 
 " To maximize the initial Vim window under Windows
-autocmd GUIEnter * simalt ~x
+"autocmd GUIEnter * simalt ~x
 
 " http://www.vim.org/scripts/script.php?script_id=687
+if has('win32')
 autocmd GUIEnter * :call libcallnr("vimtweak.dll", "SetAlpha", 220)
 "autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
 "autocmd GUIEnter * :call libcallnr("vimtweak.dll", "EnableCaption", 0)
 "autocmd GUIEnter * :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
+endif
 
 " NERD tree settings {{{
-let NERDTreeBookmarksFile=expand("$VIM/vimfiles/.NERDTreeBookmarks")
+let NERDTreeBookmarksFile=expand("~/.vim/.NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=41
 let NERDTreeDirArrows=1

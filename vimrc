@@ -37,7 +37,7 @@ set viminfo=""
 
 "set font
 set guifont=DejaVu\ Sans\ Mono\ 9
-;let g:CurrentFontSize=8
+"let g:CurrentFontSize=8
 
 "show tabs and trailing spaces
 set list

@@ -36,7 +36,7 @@ endif
 set viminfo=""
 
 "set font
-set guifont=DejaVu\ Sans\ Mono\ 9
+set guifont=Droid\ Sans\ Mono\ 9
 "let g:CurrentFontSize=8
 
 "show tabs and trailing spaces
@@ -196,4 +196,23 @@ au FileType scala let b:delimitMate_quotes = ""
 au FileType py let b:delimitMate_quotes = ""
 
 let g:ConqueTerm_CloseOnEnd = 1
+
+function! SetGfn()
+python << EOF
+import vim
+import os, os.path
+
+gfn = '/'.join([os.environ['HOME'], '.vim/.gfn'])
+
+if os.path.isfile(gfn):
+    with open(gfn) as f:
+        s = f.readline()
+        if s.strip() != '':
+           vim.command('set gfn=%s' % s)
+
+EOF
+
+endfunction
+
+call SetGfn()
 

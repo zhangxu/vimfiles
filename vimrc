@@ -195,3 +195,5 @@ autocmd FileType qf cnoreabbrev <buffer> bprev <nop>
 au FileType scala let b:delimitMate_quotes = ""
 au FileType py let b:delimitMate_quotes = ""
 
+let g:ConqueTerm_CloseOnEnd = 1
+

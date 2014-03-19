@@ -10,11 +10,12 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 colorscheme molokai
-hi Comment guifg=#008000
+hi StatusLine guifg=#bd0d74 guibg=#dddddd guisp=#dddddd gui=bold ctermfg=5 ctermbg=253 cterm=bold
+hi Comment guifg=#5a5a5a guibg=#19191d guisp=#19191d gui=NONE ctermfg=240 ctermbg=234 cterm=NONE
 
 
 "show line number
-set number
+"set number
 
 "highlight current line
 set cursorline
@@ -36,7 +37,7 @@ endif
 set viminfo=""
 
 "set font
-set guifont=Droid\ Sans\ Mono\ 9
+set guifont=Ubuntu\ Mono\ 11
 "let g:CurrentFontSize=8
 
 "show tabs and trailing spaces
@@ -53,8 +54,8 @@ set shiftwidth=4
 set expandtab
 
 "<EOL> setting
-set fileformats=unix,dos
-set fileformat=unix
+"set fileformats=unix,dos
+"set fileformat=unix
 
 "set status line
 set ruler
